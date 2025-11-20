@@ -1,37 +1,46 @@
 using UnityEngine;
 
 public class UserCamera : MonoBehaviour
-{   // паблик, чтобы можно было вручную настроить (мб слишком быстро будет)
-    [SerializeField] private float movementSpeed = 10; // скорость передвижения
-    [SerializeField] private float lookSensitivity = 2; // чувствительность мыши
+{
+    [SerializeField] private float movementSpeed = 10; 
+    [SerializeField] private float lookSensitivity = 2; 
 
     private float rotationX = 0;
     private float rotationY = 0;
+    private Rigidbody rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            rb = gameObject.AddComponent<Rigidbody>();
+        }
+
+        rb.useGravity = false;
+        rb.freezeRotation = true; 
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+    }
 
     void Update()
     {
-        // передвижение по карте
-        float moveHorizontal = Input.GetAxis("Horizontal"); // A и D
-        float moveVertical = Input.GetAxis("Vertical");     // W и S
+        float moveHorizontal = Input.GetAxis("Horizontal"); 
+        float moveVertical = Input.GetAxis("Vertical");     
 
-        // здесь сам вектор движения
-        Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
+        Vector3 movement = (transform.forward * moveVertical + transform.right * moveHorizontal).normalized;
+        movement.y = 0; 
 
-        // передвижение камеры 
-        transform.position += movement * movementSpeed * Time.deltaTime;
+        rb.linearVelocity = movement * movementSpeed;
 
-        // вращение обзора
-        if (Input.GetMouseButton(1)) // при зажатии пкм
+        if (Input.GetMouseButton(1)) 
         {
-            // входные данные мыши
             rotationX += Input.GetAxis("Mouse X") * lookSensitivity;
             rotationY -= Input.GetAxis("Mouse Y") * lookSensitivity;
 
-            // ограничения, чтобы не перевернуться вверх тормашкой (можно и убрать, если хочешь)
             rotationY = Mathf.Clamp(rotationY, -90f, 90f);
 
-            // вращение
             transform.rotation = Quaternion.Euler(rotationY, rotationX, 0);
+
         }
     }
 }
