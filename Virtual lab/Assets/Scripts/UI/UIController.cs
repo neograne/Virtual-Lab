@@ -16,10 +16,10 @@ public class UIController : MonoBehaviour
 
     private void OnClickHelp()
     {
-        Debug.Log("Кнопка Помощь нажата!");
+        Debug.Log("Кнопка Помощь нажата");
     }
     private void OnClickOptions()
     {
-        Debug.Log("Кнопка Настройки нажата!");
+        Debug.Log("Кнопка Настройки нажата");
     }
 }

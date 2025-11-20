@@ -7462,6 +7462,7 @@ GameObject:
   - component: {fileID: 1505398292}
   - component: {fileID: 1505398291}
   - component: {fileID: 1505398294}
+  - component: {fileID: 1505398295}
   m_Layer: 5
   m_Name: "\u041B\u0435\u0432\u0430\u044F \u043F\u0430\u043D\u0435\u043B\u044C"
   m_TagString: Untagged
@@ -7569,6 +7570,19 @@ MonoBehaviour:
   animator: {fileID: 1505398291}
   helpButton: {fileID: 706995918}
   optionsButton: {fileID: 0}
+--- !u!114 &1505398295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505398289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 540ae9eb2778f25428419cd9199c6b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Settings
+  helpButton: {fileID: 329291009}
 --- !u!1 &1506165537
 GameObject:
   m_ObjectHideFlags: 0
