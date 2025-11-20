@@ -5,6 +5,7 @@
 
 # Оригинальная установка
 <img width="414" height="312" alt="image" src="https://github.com/user-attachments/assets/1e61ae59-753d-459b-92c9-b26b2fa3ca67" />
+
 # Установка из ВЛР
 <img width="1445" height="606" alt="image" src="https://github.com/user-attachments/assets/03e0e890-6dc6-4fae-a776-2da4a65f7260" />
 
