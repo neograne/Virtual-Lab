@@ -17,21 +17,13 @@ public class UserCamera : MonoBehaviour
             rb = gameObject.AddComponent<Rigidbody>();
         }
 
-        rb.useGravity = false;
+        rb.useGravity = false; 
         rb.freezeRotation = true; 
-        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous; 
     }
 
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal"); 
-        float moveVertical = Input.GetAxis("Vertical");     
-
-        Vector3 movement = (transform.forward * moveVertical + transform.right * moveHorizontal).normalized;
-        movement.y = 0; 
-
-        rb.linearVelocity = movement * movementSpeed;
-
         if (Input.GetMouseButton(1)) 
         {
             rotationX += Input.GetAxis("Mouse X") * lookSensitivity;
@@ -41,6 +33,13 @@ public class UserCamera : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(rotationY, rotationX, 0);
 
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
+
+            Vector3 movement = (transform.forward * moveVertical + transform.right * moveHorizontal).normalized;
+            movement.y = 0;
+
+            rb.linearVelocity = movement * movementSpeed;
         }
     }
 }
