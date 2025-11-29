@@ -1,10 +1,10 @@
-using UnityEngine;
+п»їusing UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Lever : MonoBehaviour
+public class GeneratorButton : MonoBehaviour
 {
     [SerializeField] private GameObject indicator;
-    [SerializeField] private GameObject lever;
+    [SerializeField] private GameObject button;
     private bool isFirstClick = true;
     public bool generatorState = false;
 
@@ -17,19 +17,17 @@ public class Lever : MonoBehaviour
     {
         if (isFirstClick)
         {
-            Debug.Log("Рычаг нажат");
-            lever.transform.rotation = Quaternion.Euler(-45, 0, 0);
+            Debug.Log("Р С‹С‡Р°Рі РЅР°Р¶Р°С‚");
             indicator.GetComponent<Renderer>().material.color = Color.green;
-            Debug.Log("Индикатор загорелся зеленым");
+            Debug.Log("РРЅРґРёРєР°С‚РѕСЂ Р·Р°РіРѕСЂРµР»СЃСЏ Р·РµР»РµРЅС‹Рј");
             isFirstClick = false;
             generatorState = true;
         }
         else
         {
-            Debug.Log("Рычаг нажат");
-            lever.transform.rotation = Quaternion.Euler(-135, 0, 0);
+            Debug.Log("Р С‹С‡Р°Рі РЅР°Р¶Р°С‚");
             indicator.GetComponent<Renderer>().material.color = Color.crimson;
-            Debug.Log("Индикатор загорелся красным");
+            Debug.Log("РРЅРґРёРєР°С‚РѕСЂ Р·Р°РіРѕСЂРµР»СЃСЏ РєСЂР°СЃРЅС‹Рј");
             isFirstClick = true;
             generatorState = false;
         }

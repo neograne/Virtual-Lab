@@ -1,39 +1,40 @@
-using UnityEngine;
+п»їusing UnityEngine;
 
 public class RotarySwitch : MonoBehaviour
 {
-    [SerializeField] Lever lever;
-    [SerializeField] GameObject rotarySwitch;
+    [SerializeField] private GeneratorButton button;
+    [SerializeField] private GameObject rotarySwitch;
+    [SerializeField] private int minAngle = 300;
+    [SerializeField] private int maxAngle = 60;
     private bool currentGeneratorState;
-    private float rotationSpeed = 100f;
-
-    private void Awake()
-    {
-        if (lever == null)
-            Debug.LogError("Рычага нет");
-    }
+    private float rotationSpeed = 200f;
 
     private void Update()
     {
-        if (lever != null)
+        if (button != null)
         {
-            if (currentGeneratorState != lever.generatorState)
-                currentGeneratorState = lever.generatorState;
+            if (currentGeneratorState != button.generatorState)
+                currentGeneratorState = button.generatorState;
         }
     }
 
     private void OnMouseDrag()
     {
-        if (currentGeneratorState)
+        if (currentGeneratorState && Input.GetMouseButton(0))
         {
-            if (Input.GetMouseButton(0))
+            //dont work
+            if (rotarySwitch.transform.localRotation.eulerAngles.x == minAngle) 
             {
-                rotarySwitch.transform.Rotate(Vector3.down, Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime);
-                Debug.Log($"Rotation: {rotarySwitch.transform.localRotation.eulerAngles.x}");
+                Debug.Log("Р”РѕСЃС‚РёРіРЅСѓС‚Рѕ РјРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ");
+            }
+            else if (rotarySwitch.transform.localRotation.eulerAngles.x == maxAngle)
+            {
+                Debug.Log("Р”РѕСЃС‚РёРіРЅСѓС‚Рѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ");
             }
             else
             {
-                Debug.Log("Пользователь перестал зажимать лкм");
+                rotarySwitch.transform.Rotate(new(-1, 0, 0), Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime);
+                Debug.Log($"Rotation: {rotarySwitch.transform.localRotation.eulerAngles.x}");
             }
         }
     }

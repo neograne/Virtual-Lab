@@ -70,18 +70,22 @@ public class UserCamera : MonoBehaviour
         {
             rotationX += Input.GetAxis("Mouse X") * lookSensitivity;
             rotationY -= Input.GetAxis("Mouse Y") * lookSensitivity;
-
             rotationY = Mathf.Clamp(rotationY, -90f, 90f);
-
             transform.rotation = Quaternion.Euler(rotationY, rotationX, 0);
+        }
 
-            float moveHorizontal = Input.GetAxis("Horizontal");
-            float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
+        if (moveHorizontal != 0 || moveVertical != 0)
+        {
             Vector3 movement = (transform.forward * moveVertical + transform.right * moveHorizontal).normalized;
             movement.y = 0;
-
             rb.linearVelocity = movement * movementSpeed;
+        }
+        else
+        {
+            rb.linearVelocity = Vector3.zero;
         }
     }
 }

@@ -1,24 +1,24 @@
-using UnityEngine;
+п»їusing UnityEngine;
 using UnityEngine.UI;
 using TMPro; 
 
 public class SettingsManager : MonoBehaviour
 {
-    [Header("Ссылки на слайдеры")]
+    [Header("РЎСЃС‹Р»РєРё РЅР° СЃР»Р°Р№РґРµСЂС‹")]
     [SerializeField] private Slider sensitivitySlider;
     [SerializeField] private Slider speedSlider;
 
-    [Header("Ссылки на текстовые поля значений")]
+    [Header("РЎСЃС‹Р»РєРё РЅР° С‚РµРєСЃС‚РѕРІС‹Рµ РїРѕР»СЏ Р·РЅР°С‡РµРЅРёР№")]
     [SerializeField] private TMP_Text sensitivityValueText; 
     [SerializeField] private TMP_Text speedValueText;      
 
-    [Header("Ссылка на камеру")]
+    [Header("РЎСЃС‹Р»РєР° РЅР° РєР°РјРµСЂСѓ")]
     [SerializeField] private UserCamera userCamera;
 
     private void Start()
     {
         if (userCamera == null)
-            userCamera = FindObjectOfType<UserCamera>();
+            userCamera = FindFirstObjectByType<UserCamera>();
 
         if (sensitivitySlider != null)
         {
