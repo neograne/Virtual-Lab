@@ -635,6 +635,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 799ffe37de47bec45aac97a05252615c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 250110293}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 799ffe37de47bec45aac97a05252615c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 250110294}
   m_SourcePrefab: {fileID: 100100000, guid: 799ffe37de47bec45aac97a05252615c, type: 3}
 --- !u!1 &101736783
 GameObject:
@@ -1519,6 +1522,42 @@ MonoBehaviour:
   indicator: {fileID: 1103269784}
   button: {fileID: 250110288}
   generatorState: 0
+--- !u!58 &250110294
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250110288}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.00038418183, y: 0.00000009452924}
+  m_Radius: 0.0046351138
 --- !u!1 &254846956
 GameObject:
   m_ObjectHideFlags: 0
@@ -6932,6 +6971,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RotarySwitch
   button: {fileID: 0}
   rotarySwitch: {fileID: 1117501423}
+  minAngle: -65
+  maxAngle: -240
 --- !u!1 &1132237966
 GameObject:
   m_ObjectHideFlags: 0
@@ -7082,7 +7123,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
   m_PrefabInstance: {fileID: 1891336927}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1139037623
+--- !u!114 &1139037626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7096,6 +7137,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RotarySwitch
   button: {fileID: 250110293}
   rotarySwitch: {fileID: 1139037619}
+  minAngle: 300
+  maxAngle: 60
+--- !u!135 &1139037627
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139037619}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.00009662236
+  m_Center: {x: -0.000027286547, y: -0.000013163913, z: -5.554342e-10}
 --- !u!1001 &1146646245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10050,31 +10114,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70723015
+      value: 0.8660254
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7069834
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       propertyPath: m_Name
@@ -10086,7 +10154,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1139037623}
+      addedObject: {fileID: 1139037626}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1139037627}
   m_SourcePrefab: {fileID: 100100000, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
 --- !u!1001 &1901193769
 PrefabInstance:
