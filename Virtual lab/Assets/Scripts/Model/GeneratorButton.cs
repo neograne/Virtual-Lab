@@ -17,7 +17,7 @@ public class GeneratorButton : MonoBehaviour
     {
         if (isFirstClick)
         {
-            Debug.Log("Рычаг нажат");
+            Debug.Log("Генератор включен");
             indicator.GetComponent<Renderer>().material.color = Color.green;
             Debug.Log("Индикатор загорелся зеленым");
             isFirstClick = false;
@@ -25,7 +25,7 @@ public class GeneratorButton : MonoBehaviour
         }
         else
         {
-            Debug.Log("Рычаг нажат");
+            Debug.Log("Генератор выключен");
             indicator.GetComponent<Renderer>().material.color = Color.crimson;
             Debug.Log("Индикатор загорелся красным");
             isFirstClick = true;
