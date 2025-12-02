@@ -1,11 +1,11 @@
 ﻿using TMPro;
 using UnityEngine;
 
-public class IndicatorMhz : MonoBehaviour
+public class IndicatorDb : MonoBehaviour
 {
     [Header("Объекты")]
-    [SerializeField] private GameObject indicatorMhz;
-    [SerializeField] private RotarySwitch switchMhz;
+    [SerializeField] private GameObject indicatorDb;
+    [SerializeField] private RotarySwitch switchDb;
     [Header("Углы")]
     [SerializeField] private float localAngle;
     [SerializeField] private float trueAngle;
@@ -15,59 +15,51 @@ public class IndicatorMhz : MonoBehaviour
     [SerializeField] private TMP_Text firstDigit;
     [SerializeField] private TMP_Text secondDigit;
     [SerializeField] private TMP_Text thirdDigit;
-    [SerializeField] private TMP_Text fourthDigit;
     [SerializeField] private TMP_Text lastDigit;
 
-    private float constCoefficient = 99999 / 180;
+    private float constCoefficient = 9999 / 180;
 
     private void Awake()
     {
-        if (indicatorMhz == null)
+        if (indicatorDb == null)
         {
-            indicatorMhz = this.gameObject;
+            indicatorDb = this.gameObject;
         }
 
-        if (indicatorMhz == null)
+        if (indicatorDb == null)
         {
-            Debug.LogError("IndicatorMhz не найден");
+            Debug.LogError("IndicatorDb не найден");
             return;
         }
 
         if (firstDigit == null)
         {
-            Transform child = indicatorMhz.transform.Find("Десятки тысяч");
+            Transform child = indicatorDb.transform.Find("Тысячи");
             if (child != null) firstDigit = child.GetComponent<TMP_Text>();
-            else Debug.LogWarning("Не найден дочерний элемент Десятки тысяч");
+            else Debug.LogWarning("Не найден дочерний элемент Тысячи");
         }
 
         if (secondDigit == null)
         {
-            Transform child = indicatorMhz.transform.Find("Тысячи");
+            Transform child = indicatorDb.transform.Find("Сотни");
             if (child != null) secondDigit = child.GetComponent<TMP_Text>();
-            else Debug.LogWarning("Не найден дочерний элемент Тысячи");
+            else Debug.LogWarning("Не найден дочерний элемент Сотни");
         }
         if (thirdDigit == null)
         {
-            Transform child = indicatorMhz.transform.Find("Сотни");
+            Transform child = indicatorDb.transform.Find("Десятки");
             if (child != null) thirdDigit = child.GetComponent<TMP_Text>();
-            else Debug.LogWarning("Не найден дочерний элемент Сотни");
-        }
-
-        if (fourthDigit == null)
-        {
-            Transform child = indicatorMhz.transform.Find("Десятки");
-            if (child != null) fourthDigit = child.GetComponent<TMP_Text>();
             else Debug.LogWarning("Не найден дочерний элемент Десятки");
         }
 
         if (lastDigit == null)
         {
-            Transform child = indicatorMhz.transform.Find("Единицы");
+            Transform child = indicatorDb.transform.Find("Единицы");
             if (child != null) lastDigit = child.GetComponent<TMP_Text>();
             else Debug.LogWarning("Не найден дочерний элемент Единицы");
         }
 
-        if (firstDigit == null || secondDigit == null || thirdDigit == null || fourthDigit == null || lastDigit == null)
+        if (firstDigit == null || secondDigit == null || thirdDigit == null || lastDigit == null)
         {
             Debug.LogError("Все плохо");
         }
@@ -75,8 +67,8 @@ public class IndicatorMhz : MonoBehaviour
 
     private void FixedUpdate()
     {
-        localAngle = switchMhz.mouseTurn.x;
-        trueAngle = Mathf.Abs(localAngle) - 60f;
+        localAngle = switchDb.mouseTurn.x;
+        trueAngle = Mathf.Abs(localAngle) - 90f;
 
         indicatorNumber = Mathf.RoundToInt(trueAngle * constCoefficient);
         UpdateNumber(indicatorNumber);
@@ -85,14 +77,13 @@ public class IndicatorMhz : MonoBehaviour
     private void UpdateNumber(int number)
     {
         if (trueAngle == 180)
-            number = 99999;
+            number = 9999;
         else if (trueAngle == 0)
             number = 0;
 
-        firstDigit.text = (number / 10000).ToString();
-        secondDigit.text = ((number / 1000) % 10).ToString();
-        thirdDigit.text = ((number / 100) % 10).ToString();
-        fourthDigit.text = ((number / 10) % 10).ToString();
+        firstDigit.text = (number / 1000).ToString();
+        secondDigit.text = ((number / 100) % 10).ToString();
+        thirdDigit.text = ((number / 10) % 10).ToString();
         lastDigit.text = (number % 10).ToString();
     }
 }
