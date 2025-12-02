@@ -71,7 +71,14 @@ public class IndicatorDb : MonoBehaviour
         trueAngle = Mathf.Abs(localAngle) - 90f;
 
         indicatorNumber = Mathf.RoundToInt(trueAngle * constCoefficient);
-        UpdateNumber(indicatorNumber);
+        if (switchDb.CurrentGeneratorState) //generator on/off
+        {
+            UpdateNumber(indicatorNumber);
+        }
+        else
+        {
+            UpdateNumber(0);
+        }
     }
 
     private void UpdateNumber(int number)

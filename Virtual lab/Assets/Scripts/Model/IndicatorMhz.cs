@@ -79,7 +79,14 @@ public class IndicatorMhz : MonoBehaviour
         trueAngle = Mathf.Abs(localAngle) - 60f;
 
         indicatorNumber = Mathf.RoundToInt(trueAngle * constCoefficient);
-        UpdateNumber(indicatorNumber);
+        if (switchMhz.CurrentGeneratorState) //generator on/off
+        {
+            UpdateNumber(indicatorNumber);
+        }
+        else
+        {
+            UpdateNumber(0);
+        }
     }
 
     private void UpdateNumber(int number)

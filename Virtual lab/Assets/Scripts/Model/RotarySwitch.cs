@@ -12,6 +12,11 @@ public class RotarySwitch : MonoBehaviour
     [SerializeField] public Vector2 mouseTurn;
     private bool currentGeneratorState;
 
+    public bool CurrentGeneratorState
+    {
+        get => currentGeneratorState;
+    }
+
     private void Update()
     {
         if (button != null)
