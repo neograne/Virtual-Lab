@@ -6,7 +6,6 @@ public class RotarySwitch : MonoBehaviour
     [SerializeField] private GameObject rotarySwitch;
     [SerializeField] private float maxAngle = 120f; 
     [SerializeField] private float minAngle = -60f;
-    [SerializeField] private float yTurn;
     private bool currentGeneratorState;
     [SerializeField] private Vector2 mouseTurn; //DEBUG
 
@@ -25,7 +24,7 @@ public class RotarySwitch : MonoBehaviour
         {
             mouseTurn.x += Input.GetAxis("Mouse X");
             mouseTurn.x = Mathf.Clamp(mouseTurn.x, minAngle, maxAngle);
-            rotarySwitch.transform.localRotation = Quaternion.Euler(mouseTurn.x, yTurn, 0);
+            rotarySwitch.transform.localRotation = Quaternion.Euler(mouseTurn.x, 0, 0);
         }
     }
 }
