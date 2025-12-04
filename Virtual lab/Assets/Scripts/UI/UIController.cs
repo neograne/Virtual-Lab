@@ -1,10 +1,11 @@
-using UnityEngine;
+п»їusing UnityEngine;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
     [SerializeField] private Button helpButton;
     [SerializeField] private Button optionsButton;
+    [SerializeField] private Button modeButton;
 
     private void Awake()
     {
@@ -12,14 +13,20 @@ public class UIController : MonoBehaviour
             helpButton.onClick.AddListener(OnClickHelp);
         if (optionsButton != null)
             optionsButton.onClick.AddListener(OnClickOptions);
+        if (modeButton != null)
+            modeButton.onClick.AddListener(OnClickMode);
     }
 
     private void OnClickHelp()
     {
-        Debug.Log("Кнопка Помощь нажата");
+        Debug.Log("РљРЅРѕРїРєР° РџРѕРјРѕС‰СЊ РЅР°Р¶Р°С‚Р°");
     }
     private void OnClickOptions()
     {
-        Debug.Log("Кнопка Настройки нажата");
+        Debug.Log("РљРЅРѕРїРєР° РќР°СЃС‚СЂРѕР№РєРё РЅР°Р¶Р°С‚Р°");
+    }
+    private void OnClickMode()
+    {
+        Debug.Log("РљРЅРѕРїРєР° Р РµР¶РёРјР° СѓСЃС‚Р°РЅРѕРІРєРё");
     }
 }

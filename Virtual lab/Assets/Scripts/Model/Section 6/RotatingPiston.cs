@@ -28,9 +28,5 @@ public class RotatingPiston : MonoBehaviour
             rotatingPiston.transform.localRotation = Quaternion.Euler(0, mouseTurn.x * rotatingSpeed * Time.timeScale, 0);
             rotatingPiston.transform.localPosition = new Vector3(0, pos, 0);
         }
-        else
-        {
-            //GeneratorReset()
-        }
     }
 }
