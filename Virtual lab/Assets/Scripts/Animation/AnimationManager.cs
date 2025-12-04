@@ -11,8 +11,10 @@ public class AnimationManager : MonoBehaviour
     {
         if (helpButton != null)
             helpButton.onClick.AddListener(OnClickHelp);
+
         if (optionsButton != null)
             optionsButton.onClick.AddListener(OnClickOptions);
+
         if (modeButton != null)
             modeButton.onClick.AddListener(OnClickMode);
     }

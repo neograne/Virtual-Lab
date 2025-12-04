@@ -3276,7 +3276,7 @@ GameObject:
   - component: {fileID: 198688159}
   - component: {fileID: 198688160}
   m_Layer: 5
-  m_Name: "\u041F\u043E\u043C\u043E\u0449\u044C"
+  m_Name: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10248,6 +10248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI
   helpButton: {fileID: 706995918}
   optionsButton: {fileID: 0}
+  modeButton: {fileID: 0}
 --- !u!1 &714279742
 GameObject:
   m_ObjectHideFlags: 0
@@ -19011,7 +19012,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI
   helpButton: {fileID: 0}
-  optionsButton: {fileID: 1255680073}
+  optionsButton: {fileID: 0}
+  modeButton: {fileID: 1255680073}
 --- !u!114 &1255680073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20637,6 +20639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI
   helpButton: {fileID: 0}
   optionsButton: {fileID: 1346287497}
+  modeButton: {fileID: 0}
 --- !u!4 &1358979367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4225417865233548, guid: 7218b9728928b894eb1799b26af67733, type: 3}
@@ -23019,7 +23022,7 @@ GameObject:
   - component: {fileID: 1505398294}
   - component: {fileID: 1505398295}
   m_Layer: 5
-  m_Name: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
+  m_Name: "\u041F\u043E\u043C\u043E\u0449\u044C"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

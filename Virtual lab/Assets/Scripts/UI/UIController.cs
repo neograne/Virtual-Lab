@@ -6,13 +6,14 @@ public class UIController : MonoBehaviour
     [SerializeField] private Button helpButton;
     [SerializeField] private Button optionsButton;
     [SerializeField] private Button modeButton;
-
     private void Awake()
     {
         if (helpButton != null)
             helpButton.onClick.AddListener(OnClickHelp);
+
         if (optionsButton != null)
             optionsButton.onClick.AddListener(OnClickOptions);
+
         if (modeButton != null)
             modeButton.onClick.AddListener(OnClickMode);
     }
@@ -27,6 +28,6 @@ public class UIController : MonoBehaviour
     }
     private void OnClickMode()
     {
-        Debug.Log("Кнопка Режима установки");
+        Debug.Log("Кнопка Режима установки нажата");
     }
 }
