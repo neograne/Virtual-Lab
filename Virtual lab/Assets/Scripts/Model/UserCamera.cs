@@ -1,11 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UserCamera : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 10;
+    [SerializeField] private float movementSpeed = 5;
     [SerializeField] private float lookSensitivity = 2;
     [SerializeField] private float zoomSpeed = 5f;
-    [SerializeField] private float minFOV = 20f;
+    [SerializeField] private float minFOV = 10f;
     [SerializeField] private float maxFOV = 60f;
     [SerializeField] private bool zoomEnabled = true;
 

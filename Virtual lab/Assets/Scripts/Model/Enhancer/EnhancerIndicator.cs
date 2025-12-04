@@ -32,17 +32,6 @@ public class EnhancerIndicator : MonoBehaviour
 
     private void UpdatePosition(float angle)
     {
-        //if (trueAngle == 100)
-        //{
-        //    arrow.transform.localRotation = Quaternion.Euler(0, 0, -50);
-        //    return;
-        //}
-        //if (trueAngle == 0)
-        //{
-        //    arrow.transform.localRotation = Quaternion.Euler(0, 0, 50);
-        //    return;
-        //}
-
         arrow.transform.localRotation = Quaternion.Euler(0, 0, -angle);
     }
 }
