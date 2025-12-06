@@ -11525,7 +11525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: fb3bc37ddd718cb449ba87c7c72d49fe, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: fb3bc37ddd718cb449ba87c7c72d49fe, type: 3}
       propertyPath: 'm_Materials.Array.data[2]'
@@ -11595,6 +11595,7 @@ MonoBehaviour:
   rotarySwitch: {fileID: 760808237}
   maxAngle: 0
   minAngle: -100
+  glowMaterial: {fileID: 2100000, guid: 6fb219e34143ad24c85836866309d1c8, type: 2}
   mouseTurn: {x: 0, y: 0}
 --- !u!4 &763050315 stripped
 Transform:
@@ -11776,7 +11777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: fb3bc37ddd718cb449ba87c7c72d49fe, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: fb3bc37ddd718cb449ba87c7c72d49fe, type: 3}
       propertyPath: 'm_Materials.Array.data[2]'
@@ -12526,6 +12527,7 @@ MonoBehaviour:
   rotarySwitch: {fileID: 254820065}
   maxAngle: -90
   minAngle: -270
+  glowMaterial: {fileID: 2100000, guid: 6fb219e34143ad24c85836866309d1c8, type: 2}
   mouseTurn: {x: -90, y: 0}
 --- !u!1 &840787927
 GameObject:
@@ -17407,6 +17409,7 @@ MonoBehaviour:
   rotarySwitch: {fileID: 1139037619}
   maxAngle: -60
   minAngle: -240
+  glowMaterial: {fileID: 2100000, guid: 6fb219e34143ad24c85836866309d1c8, type: 2}
   mouseTurn: {x: -60, y: 0}
 --- !u!135 &1139037627
 SphereCollider:
@@ -27603,6 +27606,7 @@ MonoBehaviour:
   rotarySwitch: {fileID: 1336373322}
   maxAngle: -90
   minAngle: -270
+  glowMaterial: {fileID: 2100000, guid: 6fb219e34143ad24c85836866309d1c8, type: 2}
   mouseTurn: {x: -90, y: 0}
 --- !u!1 &1816997693
 GameObject:
@@ -28950,9 +28954,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 3
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f2d64feb405ab4a4b82d51ad6236a13b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 71a8cc60305e5ea4ca1811ba1a12b8de, type: 2}
     - target: {fileID: -7511558181221131132, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       propertyPath: 'm_Materials.Array.data[2]'
       value: 
@@ -30334,7 +30350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 02f172258d795d74da9faef99f94f25f, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 02f172258d795d74da9faef99f94f25f, type: 3}
       propertyPath: 'm_Materials.Array.data[2]'

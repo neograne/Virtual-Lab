@@ -8,13 +8,35 @@ public class RotarySwitchMhz : MonoBehaviour
     [Header("Углы")]
     [SerializeField] private float maxAngle = -60f; 
     [SerializeField] private float minAngle = -240f;
+    [Header("Подсветка")]
+    [SerializeField] private Material glowMaterial;
     [Header("DEBUG")]
     [SerializeField] public Vector2 mouseTurn;
     private bool currentGeneratorState;
+    private Renderer rotarySwitchRenderer;
+    private Material[] originalMaterials;
 
     public bool CurrentGeneratorState
     {
         get => currentGeneratorState;
+    }
+
+    private void Awake()
+    {
+        if (rotarySwitch != null)
+        {
+            rotarySwitchRenderer = rotarySwitch.GetComponent<Renderer>();
+            originalMaterials = rotarySwitchRenderer.sharedMaterials;
+        }
+        else
+        {
+            Debug.LogError("Префаб съели волки");
+        }
+
+        if (glowMaterial == null)
+        {
+            Debug.LogError("Префаб погрызли собаки");
+        }
     }
 
     private void Update()
@@ -23,6 +45,7 @@ public class RotarySwitchMhz : MonoBehaviour
         {
             if (currentGeneratorState != button.generatorState)
                 currentGeneratorState = button.generatorState;
+            UpdateMaterials();
         }
     }
 
@@ -33,6 +56,24 @@ public class RotarySwitchMhz : MonoBehaviour
             mouseTurn.x -= Input.GetAxis("Mouse X");
             mouseTurn.x = Mathf.Clamp(mouseTurn.x, minAngle, maxAngle);
             rotarySwitch.transform.localRotation = Quaternion.Euler(mouseTurn.x, 0, 0);
+        }
+    }
+
+    private void UpdateMaterials()
+    {
+        if (currentGeneratorState)
+        {
+            Material[] newMaterials = new Material[originalMaterials.Length + 1];
+            for (int i = 0; i < originalMaterials.Length; i++)
+            {
+                newMaterials[i] = originalMaterials[i];
+            }
+            newMaterials[originalMaterials.Length] = glowMaterial;
+            rotarySwitchRenderer.materials = newMaterials;
+        }
+        else
+        {
+            rotarySwitchRenderer.materials = originalMaterials;
         }
     }
 
