@@ -34,9 +34,5 @@ public class EnhancerRotarySwitch : MonoBehaviour
             mouseTurn.x = Mathf.Clamp(mouseTurn.x, minAngle, maxAngle);
             rotarySwitch.transform.rotation = Quaternion.Euler(mouseTurn.x, -90, 0);
         }
-        else
-        {
-            //EnhancerReset()
-        }
     }
 }
