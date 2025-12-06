@@ -29,4 +29,11 @@ public class RotatingPiston : MonoBehaviour
             rotatingPiston.transform.localPosition = new Vector3(0, pos, 0);
         }
     }
+
+    public void GlobalReset()
+    {
+        mouseTurn.x = 0;
+        rotatingPiston.transform.localPosition = new Vector3(0, -0.7f, 0);
+        rotatingPiston.transform.localRotation = Quaternion.Euler(0, 0, 0);
+    }
 }

@@ -5,7 +5,7 @@ public class IndicatorDb : MonoBehaviour
 {
     [Header("Объекты")]
     [SerializeField] private GameObject indicatorDb;
-    [SerializeField] private RotarySwitch switchDb;
+    [SerializeField] private RotarySwitchDb switchDb;
     [Header("Углы")]
     [SerializeField] private float localAngle;
     [SerializeField] private float trueAngle;
@@ -92,5 +92,10 @@ public class IndicatorDb : MonoBehaviour
         secondDigit.text = ((number / 100) % 10).ToString();
         thirdDigit.text = ((number / 10) % 10).ToString();
         lastDigit.text = (number % 10).ToString();
+    }
+
+    public void GlobalReset()
+    {
+
     }
 }

@@ -24,4 +24,11 @@ public class EnhancerButton: MonoBehaviour
             enhancerState = false;
         }
     }
+
+    public void GlobalReset()
+    {
+        isFirstClick = true;
+        enhancerState = false;
+        indicator.GetComponent<Renderer>().material.color = Color.black;
+    }
 }

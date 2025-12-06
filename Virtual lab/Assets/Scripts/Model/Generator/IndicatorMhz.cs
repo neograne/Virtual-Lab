@@ -5,7 +5,7 @@ public class IndicatorMhz : MonoBehaviour
 {
     [Header("Объекты")]
     [SerializeField] private GameObject indicatorMhz;
-    [SerializeField] private RotarySwitch switchMhz;
+    [SerializeField] private RotarySwitchMhz switchMhz;
     [Header("Углы")]
     [SerializeField] private float localAngle;
     [SerializeField] private float trueAngle;
@@ -101,5 +101,10 @@ public class IndicatorMhz : MonoBehaviour
         thirdDigit.text = ((number / 100) % 10).ToString();
         fourthDigit.text = ((number / 10) % 10).ToString();
         lastDigit.text = (number % 10).ToString();
+    }
+
+    public void GlobalReset()
+    {
+
     }
 }

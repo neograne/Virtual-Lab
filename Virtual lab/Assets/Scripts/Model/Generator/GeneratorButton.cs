@@ -8,7 +8,7 @@ public class GeneratorButton : MonoBehaviour
     private bool isFirstClick = true;
     public bool generatorState = false;
 
-    public void OnMouseDown()
+    private void OnMouseDown()
     {
         if (isFirstClick)
         {
@@ -24,5 +24,12 @@ public class GeneratorButton : MonoBehaviour
             isFirstClick = true;
             generatorState = false;
         }
+    }
+
+    public void GlobalReset()
+    {
+        isFirstClick = true;
+        generatorState = false;
+        indicator.GetComponent<Renderer>().material.color = Color.black;
     }
 }

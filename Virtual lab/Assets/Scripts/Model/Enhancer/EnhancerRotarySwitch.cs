@@ -35,4 +35,10 @@ public class EnhancerRotarySwitch : MonoBehaviour
             rotarySwitch.transform.rotation = Quaternion.Euler(mouseTurn.x, -90, 0);
         }
     }
+
+    public void GlobalReset()
+    {
+        mouseTurn.x = 0f;
+        rotarySwitch.transform.rotation = Quaternion.Euler(0f, -90, 0);
+    }
 }

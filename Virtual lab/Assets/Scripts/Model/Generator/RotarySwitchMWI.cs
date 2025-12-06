@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-public class RotarySwitch : MonoBehaviour
+public class RotarySwitchMWI : MonoBehaviour
 {
     [Header("Объекты")]
     [SerializeField] private GeneratorButton button;
     [SerializeField] private GameObject rotarySwitch;
     [Header("Углы")]
-    [SerializeField] private float maxAngle = -60f; 
-    [SerializeField] private float minAngle = -240f;
+    [SerializeField] private float maxAngle = -90f;
+    [SerializeField] private float minAngle = -270f;
     [Header("DEBUG")]
     [SerializeField] public Vector2 mouseTurn;
     private bool currentGeneratorState;
@@ -34,9 +34,11 @@ public class RotarySwitch : MonoBehaviour
             mouseTurn.x = Mathf.Clamp(mouseTurn.x, minAngle, maxAngle);
             rotarySwitch.transform.localRotation = Quaternion.Euler(mouseTurn.x, 0, 0);
         }
-        else
-        {
-            //GeneratorReset()
-        }
+    }
+
+    public void GlobalReset()
+    {
+        mouseTurn.x = -90;
+        rotarySwitch.transform.localRotation = Quaternion.Euler(-90, 0, 0);
     }
 }

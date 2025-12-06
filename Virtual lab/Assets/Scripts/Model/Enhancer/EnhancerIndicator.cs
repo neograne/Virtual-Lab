@@ -42,4 +42,13 @@ public class EnhancerIndicator : MonoBehaviour
     {
         arrow.transform.localRotation = Quaternion.Euler(0, 0, -angle);
     }
+
+    public void GlobalReset()
+    {
+        localAngle = 0f;
+        trueAngle = 0f;
+        trueNumber = 0;
+        resultNumber.text = "0";
+        arrow.transform.localRotation = Quaternion.Euler(0, 0, 50);
+    }
 }

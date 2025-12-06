@@ -1226,7 +1226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IndicatorDb
   indicatorDb: {fileID: 58233218}
-  switchDb: {fileID: 1814011410}
+  switchDb: {fileID: 1814011414}
   localAngle: 0
   trueAngle: 0
   indicatorNumber: 0
@@ -8192,6 +8192,7 @@ GameObject:
   - component: {fileID: 501720569}
   - component: {fileID: 501720568}
   - component: {fileID: 501720571}
+  - component: {fileID: 501720572}
   m_Layer: 5
   m_Name: "\u0420\u0435\u0436\u0438\u043C \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0438"
   m_TagString: Untagged
@@ -8297,6 +8298,21 @@ MonoBehaviour:
   helpButton: {fileID: 0}
   optionsButton: {fileID: 0}
   modeButton: {fileID: 1255680073}
+--- !u!114 &501720572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501720566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67baf98428417144e9545ef7cef2944c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModeChanger
+  modeDropDown: {fileID: 2104360291}
+  globalReset: {fileID: 2124153841}
+  currentMode: "\u041E\u0434\u043D\u043E\u0432\u043E\u043B\u043D\u043E\u0432\u043E\u0439"
 --- !u!1001 &513110776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11779,7 +11795,7 @@ PrefabInstance:
       addedObject: {fileID: 838700634}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fb3bc37ddd718cb449ba87c7c72d49fe, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 838700633}
+      addedObject: {fileID: 838700637}
   m_SourcePrefab: {fileID: 100100000, guid: fb3bc37ddd718cb449ba87c7c72d49fe, type: 3}
 --- !u!4 &780838742 stripped
 Transform:
@@ -12154,7 +12170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.28166845, y: -0.42166722}
+  m_AnchoredPosition: {x: 0.268, y: -0.42166722}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &826059397
@@ -12211,7 +12227,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 16
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -12242,7 +12258,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.9159241, y: -1.0883213, z: 18.701965, w: 1.434207}
+  m_margin: {x: -3.46422, y: -2.399981, z: 15.541332, w: 0.015676497}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -12471,23 +12487,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fb3bc37ddd718cb449ba87c7c72d49fe, type: 3}
   m_PrefabInstance: {fileID: 773140144}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &838700633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254820065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c98bb9b707f14c409f5145eedcdce4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RotarySwitch
-  button: {fileID: 250110293}
-  rotarySwitch: {fileID: 254820065}
-  maxAngle: -90
-  minAngle: -270
-  mouseTurn: {x: -90, y: 0}
 --- !u!136 &838700634
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12511,6 +12510,23 @@ CapsuleCollider:
   m_Height: 0.00032873522
   m_Direction: 0
   m_Center: {x: 0.00005149241, y: 0, z: 0}
+--- !u!114 &838700637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254820065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce9cf8f637ed604697f228079561d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotarySwitchMWI
+  button: {fileID: 250110293}
+  rotarySwitch: {fileID: 254820065}
+  maxAngle: -90
+  minAngle: -270
+  mouseTurn: {x: -90, y: 0}
 --- !u!1 &840787927
 GameObject:
   m_ObjectHideFlags: 0
@@ -26367,6 +26383,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e678a7f2a2d04194999ba56dcf67107d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e678a7f2a2d04194999ba56dcf67107d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6fb219e34143ad24c85836866309d1c8, type: 2}
     - target: {fileID: 919132149155446097, guid: e678a7f2a2d04194999ba56dcf67107d, type: 3}
       propertyPath: m_Name
       value: "\u041B\u0430\u043C\u043F\u043E\u0447\u043A\u0430"
@@ -27542,23 +27566,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 02f172258d795d74da9faef99f94f25f, type: 3}
   m_PrefabInstance: {fileID: 1982013578}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1814011410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336373322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c98bb9b707f14c409f5145eedcdce4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RotarySwitch
-  button: {fileID: 250110293}
-  rotarySwitch: {fileID: 1336373322}
-  maxAngle: -90
-  minAngle: -270
-  mouseTurn: {x: -90, y: 0}
 --- !u!135 &1814011411
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -27580,6 +27587,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.0001405293
   m_Center: {x: -0.000000007450581, y: 7.2759585e-12, z: 0.0000000018626451}
+--- !u!114 &1814011414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336373322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d356f2864a606a246b2a05e6264fe121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotarySwitchDb
+  button: {fileID: 250110293}
+  rotarySwitch: {fileID: 1336373322}
+  maxAngle: -90
+  minAngle: -270
+  mouseTurn: {x: -90, y: 0}
 --- !u!1 &1816997693
 GameObject:
   m_ObjectHideFlags: 0
@@ -30329,7 +30353,7 @@ PrefabInstance:
       addedObject: {fileID: 1814011411}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 02f172258d795d74da9faef99f94f25f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1814011410}
+      addedObject: {fileID: 1814011414}
   m_SourcePrefab: {fileID: 100100000, guid: 02f172258d795d74da9faef99f94f25f, type: 3}
 --- !u!1001 &1987681605
 PrefabInstance:
@@ -32181,6 +32205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2124153840}
+  - component: {fileID: 2124153841}
   m_Layer: 0
   m_Name: "\u0421\u0446\u0435\u043D\u0430"
   m_TagString: Untagged
@@ -32213,6 +32238,28 @@ Transform:
   - {fileID: 1328063831}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2124153841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124153839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838086464855f254bb8c70a59cc27f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GlobalReset
+  enhancerIndicator: {fileID: 1506165542}
+  enhancerButton: {fileID: 1817560476}
+  enhancerRotarySwitch: {fileID: 760808242}
+  generatorButton: {fileID: 250110293}
+  rotarySwitchMhz: {fileID: 1139037626}
+  rotarySwitchDb: {fileID: 1814011414}
+  rotarySwitchMWI: {fileID: 838700637}
+  indicatorMhz: {fileID: 524699279}
+  indicatorDb: {fileID: 58233223}
+  rotatingPiston: {fileID: 373710650}
 --- !u!1001 &2126050717
 PrefabInstance:
   m_ObjectHideFlags: 0
