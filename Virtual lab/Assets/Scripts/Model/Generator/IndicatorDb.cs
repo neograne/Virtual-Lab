@@ -6,6 +6,7 @@ public class IndicatorDb : MonoBehaviour
     [Header("Объекты")]
     [SerializeField] private GameObject indicatorDb;
     [SerializeField] private RotarySwitchDb switchDb;
+    [SerializeField] private GameObject dial;
     [Header("Углы")]
     [SerializeField] private float localAngle;
     [SerializeField] private float trueAngle;
@@ -73,10 +74,12 @@ public class IndicatorDb : MonoBehaviour
         indicatorNumber = Mathf.RoundToInt(trueAngle * constCoefficient);
         if (switchDb.CurrentGeneratorState) //generator on/off
         {
+            dial.SetActive(true);
             UpdateNumber(indicatorNumber);
         }
         else
         {
+            dial.SetActive(false);
             UpdateNumber(0);
         }
     }

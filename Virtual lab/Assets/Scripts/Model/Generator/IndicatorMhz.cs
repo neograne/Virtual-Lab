@@ -6,6 +6,7 @@ public class IndicatorMhz : MonoBehaviour
     [Header("Объекты")]
     [SerializeField] private GameObject indicatorMhz;
     [SerializeField] private RotarySwitchMhz switchMhz;
+    [SerializeField] private GameObject dial;
     [Header("Углы")]
     [SerializeField] private float localAngle;
     [SerializeField] private float trueAngle;
@@ -81,10 +82,12 @@ public class IndicatorMhz : MonoBehaviour
         indicatorNumber = Mathf.RoundToInt(trueAngle * constCoefficient);
         if (switchMhz.CurrentGeneratorState) //generator on/off
         {
+            dial.SetActive(true);
             UpdateNumber(indicatorNumber);
         }
         else
         {
+            dial.SetActive(false);
             UpdateNumber(0);
         }
     }
