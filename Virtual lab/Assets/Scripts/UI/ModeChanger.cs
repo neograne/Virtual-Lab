@@ -26,11 +26,13 @@ public class ModeChanger : MonoBehaviour
         if (modeIndex == 0)
         {
             Debug.Log("Текущий режим Одноволновой");
+            currentMode = "Одноволновой";
             globalReset.ResetStation();
         }
         else if (modeIndex == 1)
         {
             Debug.Log("Текущий режим Двухволновой");
+            currentMode = "Двухволновой";
             globalReset.ResetStation();
         }
     }

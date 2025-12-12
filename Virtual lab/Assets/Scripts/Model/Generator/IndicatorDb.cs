@@ -11,7 +11,7 @@ public class IndicatorDb : MonoBehaviour
     [SerializeField] private float localAngle;
     [SerializeField] private float trueAngle;
     [Header("Полное число на табло")]
-    [SerializeField] private int indicatorNumber;
+    [SerializeField] public int indicatorNumber;
     [Header("Цифры на табло")]
     [SerializeField] private TMP_Text firstDigit;
     [SerializeField] private TMP_Text secondDigit;
@@ -72,6 +72,7 @@ public class IndicatorDb : MonoBehaviour
         trueAngle = Mathf.Abs(localAngle) - 90f;
 
         indicatorNumber = Mathf.RoundToInt(trueAngle * constCoefficient);
+
         if (switchDb.CurrentGeneratorState) //generator on/off
         {
             dial.SetActive(true);

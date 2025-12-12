@@ -11,7 +11,7 @@ public class IndicatorMhz : MonoBehaviour
     [SerializeField] private float localAngle;
     [SerializeField] private float trueAngle;
     [Header("Полное число на табло")]
-    [SerializeField] private int indicatorNumber;
+    [SerializeField] public int indicatorNumber;
     [Header("Цифры на табло")]
     [SerializeField] private TMP_Text firstDigit;
     [SerializeField] private TMP_Text secondDigit;
