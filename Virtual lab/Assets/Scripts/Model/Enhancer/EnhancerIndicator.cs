@@ -15,11 +15,13 @@ public class EnhancerIndicator : MonoBehaviour
     [Header("Итоговое число")]
     [SerializeField] public int trueNumber;
 
+    private float constCoefficient = 100f / 86f;
+
     private void FixedUpdate()
     {
         localAngle = rotarySwitch.mouseTurn.x;
-        trueAngle = Mathf.Abs(localAngle) - 50f;
-        trueNumber = Mathf.RoundToInt(Mathf.Abs(localAngle));
+        trueAngle = Mathf.Abs(localAngle);
+        trueNumber = Mathf.RoundToInt(Mathf.Abs(localAngle) * constCoefficient);
 
         if (rotarySwitch.CurrentEnhancerState) //enhancer on/off
         {
@@ -40,7 +42,7 @@ public class EnhancerIndicator : MonoBehaviour
 
     private void UpdatePosition(float angle)
     {
-        arrow.transform.localRotation = Quaternion.Euler(0, 0, -angle);
+        arrow.transform.localRotation = Quaternion.Euler(-angle - 47, 0, 0);
     }
 
     public void GlobalReset()
@@ -49,6 +51,6 @@ public class EnhancerIndicator : MonoBehaviour
         trueAngle = 0f;
         trueNumber = 0;
         resultNumber.text = "0";
-        arrow.transform.localRotation = Quaternion.Euler(0, 0, 50);
+        arrow.transform.localRotation = Quaternion.Euler(-47f, 0, 0);
     }
 }

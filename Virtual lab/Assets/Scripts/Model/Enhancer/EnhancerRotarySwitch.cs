@@ -6,8 +6,8 @@ public class EnhancerRotarySwitch : MonoBehaviour
     [SerializeField] private EnhancerButton button;
     [SerializeField] private GameObject rotarySwitch;
     [Header("Углы")]
-    [SerializeField] private float maxAngle = 100f;
-    [SerializeField] private float minAngle = 0f;
+    [SerializeField] private float maxAngle = 0f;
+    [SerializeField] private float minAngle = -86f;
     [Header("Подсветка")]
     [SerializeField] private Material glowMaterial;
     [Header("DEBUG")]
@@ -78,6 +78,6 @@ public class EnhancerRotarySwitch : MonoBehaviour
     public void GlobalReset()
     {
         mouseTurn.x = 0f;
-        rotarySwitch.transform.rotation = Quaternion.Euler(0f, -90, 0);
+        rotarySwitch.transform.rotation = Quaternion.Euler(0, -90, 0);
     }
 }

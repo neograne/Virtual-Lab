@@ -15,6 +15,7 @@ public class EnhancerButton: MonoBehaviour
             indicator.GetComponent<Renderer>().material.color = Color.crimson;
             isFirstClick = false;
             enhancerState = true;
+            button.transform.localRotation = Quaternion.Euler(0, 0, -45);
         }
         else
         {
@@ -22,6 +23,7 @@ public class EnhancerButton: MonoBehaviour
             indicator.GetComponent<Renderer>().material.color = Color.black;
             isFirstClick = true;
             enhancerState = false;
+            button.transform.localRotation = Quaternion.Euler(0, 0, 45);
         }
     }
 
@@ -30,5 +32,6 @@ public class EnhancerButton: MonoBehaviour
         isFirstClick = true;
         enhancerState = false;
         indicator.GetComponent<Renderer>().material.color = Color.black;
+        button.transform.localRotation = Quaternion.Euler(0, 0, 45);
     }
 }
