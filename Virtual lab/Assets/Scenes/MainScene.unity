@@ -5781,13 +5781,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotatingPiston
   rotatingPiston: {fileID: 373710648}
-  minPosition: -1.7
+  minPosition: -1.4
   maxPosition: -0.7
   maxRotationAngle: 360
   moveSensitivity: 1
   rotationSensitivity: 200
   currentPosition: 0
   currentRotation: 0
+  truePosition: 0
 --- !u!4 &376208808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4895497590064792, guid: 288b229db858c114299d1bf70ffc95cd, type: 3}
@@ -17057,6 +17058,7 @@ MonoBehaviour:
   minAngle: 0
   maxAngle: 360
   mouseTurn: {x: 0, y: 0}
+  trueAngle: 0
 --- !u!1001 &1146646245
 PrefabInstance:
   m_ObjectHideFlags: 0

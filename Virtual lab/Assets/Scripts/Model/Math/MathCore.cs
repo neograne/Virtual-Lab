@@ -24,6 +24,7 @@ public class MathCore: MonoBehaviour
     [SerializeField] private IndicatorDb indicatorDb;
     [Header("Section 6")]
     [SerializeField] private RotatingPiston rotatingPiston;
+    [SerializeField] private Section6 section6;
     [Header("UI")]
     [SerializeField] private ModeChanger modeChanger;
 
@@ -44,19 +45,18 @@ public class MathCore: MonoBehaviour
 
     private void FixedUpdate()
     {
-        //TransformInputParameters();
+        TransformInputParameters();
         CalculateWaveParameters();
-        //CalculateWaveCoefficients();
-        //CalculateOutputPower();
+        CalculateWaveCoefficients();
+        CalculateOutputPower();
     }
 
     private void TransformInputParameters()
     {
         // 3.1
-        // скорее всего неверно
         linearGeneratorCoeff = Mathf.Pow(10, (indicatorDb.indicatorNumber / 20)); // Линейный коэффициент генератора
-        //fullDistance = zkz + pinDistance // Полное расстояние - z
-        //angleRad = anglekz * (Mathf.PI / 180); // Угол в радианах
+        fullDistance = rotatingPiston.truePosition / 10 + pinDistance; // Полное расстояние
+        angleRad = section6.trueAngle * (Mathf.PI / 180); // Угол в радианах
     }
 
     private void CalculateWaveParameters()
@@ -91,7 +91,32 @@ public class MathCore: MonoBehaviour
         // скорее всего неверно
         baseSignal = linearGeneratorCoeff * amplificationCoefficient * Mathf.Abs(waveCoefficient)
             * (1 - BoolToInt(enhancerButton.enhancerState)) * BoolToInt(generatorButton.generatorState) + enhancerIndicator.trueNumber;
-        //outputPower = K_scale * Mathf.Pow(baseSignal, 2) * scaleCoefficient;
+        if (BoolToInt(enhancerButton.enhancerState) == 0 && BoolToInt(generatorButton.generatorState) == 1)
+        {
+            outputPower = rotarySwitchMWI.trueCoefficient * 
+                Mathf.Pow(linearGeneratorCoeff * amplificationCoefficient * Mathf.Abs(waveCoefficient), 2) * scaleCoefficient;
+            Debug.Log("Нормальный режим");
+        }
+        else if (BoolToInt(enhancerButton.enhancerState) == 1)
+        {
+            outputPower = rotarySwitchMWI.trueCoefficient * Mathf.Pow(baseSignal, 2) * scaleCoefficient;
+            Debug.Log("Установка нуля");
+        }
+        else if (BoolToInt(generatorButton.generatorState) == 0)
+        {
+            outputPower = rotarySwitchMWI.trueCoefficient * Mathf.Pow(baseSignal, 2) * scaleCoefficient;
+            Debug.Log("Генератор выкл");
+        }
+        else if (linearGeneratorCoeff == 0)
+        {
+            outputPower = rotarySwitchMWI.trueCoefficient * Mathf.Pow(baseSignal, 2) * scaleCoefficient;
+            Debug.Log("Нулевая мощность");
+        }
+        else if (Mathf.Abs(waveCoefficient) == 1 && linearGeneratorCoeff == float.PositiveInfinity)
+        {
+            outputPower = rotarySwitchMWI.trueCoefficient * Mathf.Pow(baseSignal, 2) * scaleCoefficient;
+            Debug.Log("Максимальный сигнал");
+        }
     }
 
 

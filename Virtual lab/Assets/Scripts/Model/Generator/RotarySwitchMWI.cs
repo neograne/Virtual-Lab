@@ -15,6 +15,8 @@ public class RotarySwitchMWI : MonoBehaviour
     private bool currentGeneratorState;
     private Renderer rotarySwitchRenderer;
     private Material[] originalMaterials;
+    private float trueAngle;
+    public float trueCoefficient;
 
     public bool CurrentGeneratorState
     {
@@ -55,6 +57,15 @@ public class RotarySwitchMWI : MonoBehaviour
             mouseTurn.x -= Input.GetAxis("Mouse X");
             mouseTurn.x = Mathf.Clamp(mouseTurn.x, minAngle, maxAngle);
             rotarySwitch.transform.localRotation = Quaternion.Euler(mouseTurn.x, 0, 0);
+            trueAngle = Mathf.Abs(mouseTurn.x + 90);
+            if (trueAngle < 45)
+                trueCoefficient = 0.1f;
+            else if (trueAngle < 90)
+                trueCoefficient = 1f;
+            else if (trueAngle < 135)
+                trueCoefficient = 10f;
+            else if (trueAngle < 180)
+                trueCoefficient = 100f;
         }
     }
     private void UpdateMaterials()
