@@ -4,11 +4,15 @@ using UnityEngine.UI;
 public class AnimationManager : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private Button allButton;
     [SerializeField] private Button helpButton;
     [SerializeField] private Button optionsButton;
     [SerializeField] private Button modeButton;
     private void Awake()
     {
+        if (allButton != null)
+            allButton.onClick.AddListener(OnClickAll);
+
         if (helpButton != null)
             helpButton.onClick.AddListener(OnClickHelp);
 
@@ -17,6 +21,11 @@ public class AnimationManager : MonoBehaviour
 
         if (modeButton != null)
             modeButton.onClick.AddListener(OnClickMode);
+    }
+
+    private void OnClickAll()
+    {
+        animator.SetTrigger("ButtonClicked0");
     }
 
     private void OnClickHelp()
