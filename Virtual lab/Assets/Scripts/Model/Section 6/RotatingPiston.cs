@@ -6,8 +6,8 @@ public class RotatingPiston : MonoBehaviour
     [SerializeField] private GameObject rotatingPiston;
 
     [Header("Ограничения движения")]
-    [SerializeField] private float minPosition = -0.7f;
-    [SerializeField] private float maxPosition = -1.7f;
+    [SerializeField] private float minPosition = -1.7f;
+    [SerializeField] private float maxPosition = -0.7f;
     [SerializeField] private float maxRotationAngle = 360f;
 
     [Header("Настройки чувствительности")]

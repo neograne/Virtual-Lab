@@ -28,22 +28,26 @@ public class MathCore: MonoBehaviour
     [SerializeField] private ModeChanger modeChanger;
 
     // PARAMETERS
-    private float linearGeneratorCoeff;
-    private float fullDistance;
-    private float angleRad;
+    [Header("Выходящие параметры")]
+    [SerializeField] private float linearGeneratorCoeff;
+    [SerializeField] private float fullDistance;
+    [SerializeField] private float angleRad;
 
-    private float waveLength;
-    private float waveLengthE01;
-    private float waveLengthH11;
+    [SerializeField] private float waveLength;
+    [SerializeField] private float waveLengthE01;
+    [SerializeField] private float waveLengthH11;
 
-    private float waveCoefficient;
+    [SerializeField] private float waveCoefficient;
 
-    private float baseSignal;
-    private float outputPower;
+    [SerializeField] private float baseSignal;
+    [SerializeField] private float outputPower;
 
     private void FixedUpdate()
     {
-
+        //TransformInputParameters();
+        CalculateWaveParameters();
+        //CalculateWaveCoefficients();
+        //CalculateOutputPower();
     }
 
     private void TransformInputParameters()
