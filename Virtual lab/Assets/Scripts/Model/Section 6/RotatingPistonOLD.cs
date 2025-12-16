@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class RotatingPiston : MonoBehaviour
+public class RotatingPistonOLD : MonoBehaviour
 {
     [Header("Объекты")]
     [SerializeField] private GameObject rotatingPiston;
