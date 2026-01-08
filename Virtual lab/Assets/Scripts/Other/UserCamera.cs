@@ -8,7 +8,7 @@ public class UserCamera : MonoBehaviour
 
     [Header("Zoom")]
     [SerializeField] private float zoomSpeed = 5f;
-    [SerializeField] private float zoomStrength = 10f;
+    [SerializeField] private float zoomStrength = 5f; // Изменено с 10 на 5 (середина диапазона)
     [SerializeField] private float minFOV = 10f;
     [SerializeField] private float maxFOV = 60f;
     [SerializeField] private bool zoomEnabled = true;
@@ -43,7 +43,7 @@ public class UserCamera : MonoBehaviour
         get => zoomStrength;
         set
         {
-            zoomStrength = Mathf.Clamp(value, 5f, 60f);
+            zoomStrength = Mathf.Clamp(value, 1f, 10f); // Диапазон 1-10
             UpdateMinFOV();
         }
     }
@@ -91,11 +91,17 @@ public class UserCamera : MonoBehaviour
     {
         if (playerCamera == null) return;
 
-        minFOV = originalFOV / (zoomStrength / 10f);
-        minFOV = Mathf.Clamp(minFOV, 5f, originalFOV * 2f);
+        float normalizedStrength = (zoomStrength - 1f) / 9f; 
+
+        float minPossibleFOV = 5f; 
+        float maxPossibleFOV = originalFOV; 
+
+        minFOV = Mathf.Lerp(maxPossibleFOV, minPossibleFOV, normalizedStrength);
 
         currentFOV = Mathf.Clamp(currentFOV, minFOV, maxFOV);
         playerCamera.fieldOfView = currentFOV;
+
+        Debug.Log($"Сила зума: {zoomStrength}, Мин. FOV: {minFOV:F1}°, Макс. FOV: {maxFOV:F1}°");
     }
 
     private void HandleRotation()
@@ -143,6 +149,15 @@ public class UserCamera : MonoBehaviour
         {
             currentFOV -= scrollInput * zoomSpeed;
             currentFOV = Mathf.Clamp(currentFOV, minFOV, maxFOV);
+            playerCamera.fieldOfView = currentFOV;
+        }
+    }
+
+    public void ResetZoom()
+    {
+        if (playerCamera != null)
+        {
+            currentFOV = originalFOV;
             playerCamera.fieldOfView = currentFOV;
         }
     }

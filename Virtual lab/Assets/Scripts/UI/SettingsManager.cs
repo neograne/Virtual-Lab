@@ -26,12 +26,31 @@ public class SettingsManager : MonoBehaviour
         if (userCamera == null)
             userCamera = FindFirstObjectByType<UserCamera>();
 
+        // Настраиваем диапазоны слайдеров
+        ConfigureSliders();
+
         InitializeSlider(sensitivitySlider, userCamera.LookSensitivity, OnSensitivityChanged);
         InitializeSlider(speedSlider, userCamera.MovementSpeed, OnSpeedChanged);
         InitializeSlider(zoomSpeedSlider, userCamera.ZoomSpeed, OnZoomSpeedChanged);
         InitializeSlider(zoomStrengthSlider, userCamera.ZoomStrength, OnZoomStrengthChanged);
 
         UpdateDisplayValues();
+    }
+
+    private void ConfigureSliders()
+    {
+        // Скорость зума: 1-20, по умолчанию 5
+        if (zoomSpeedSlider != null)
+        {
+            zoomSpeedSlider.minValue = 1f;
+            zoomSpeedSlider.maxValue = 20f;
+        }
+
+        if (zoomStrengthSlider != null)
+        {
+            zoomStrengthSlider.minValue = 1f;
+            zoomStrengthSlider.maxValue = 10f;
+        }
     }
 
     private void InitializeSlider(Slider slider, float initialValue, UnityEngine.Events.UnityAction<float> callback)
@@ -63,7 +82,11 @@ public class SettingsManager : MonoBehaviour
 
     private void OnZoomStrengthChanged(float value)
     {
-        if (userCamera != null) userCamera.ZoomStrength = value;
+        if (userCamera != null)
+        {
+            userCamera.ZoomStrength = value;
+            Debug.Log($"Сила зума установлена: {value}");
+        }
         UpdateDisplayValues();
     }
 
@@ -90,7 +113,8 @@ public class SettingsManager : MonoBehaviour
         userCamera.LookSensitivity = 2f;
         userCamera.MovementSpeed = 5f;
         userCamera.ZoomSpeed = 5f;
-        userCamera.ZoomStrength = 10f;
+        userCamera.ZoomStrength = 5f;
+        userCamera.ResetZoom();
 
         sensitivitySlider.value = userCamera.LookSensitivity;
         speedSlider.value = userCamera.MovementSpeed;
@@ -98,5 +122,6 @@ public class SettingsManager : MonoBehaviour
         zoomStrengthSlider.value = userCamera.ZoomStrength;
 
         UpdateDisplayValues();
+        Debug.Log("Настройки сброшены к значениям по умолчанию");
     }
 }

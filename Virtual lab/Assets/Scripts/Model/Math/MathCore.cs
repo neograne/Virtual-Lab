@@ -8,7 +8,17 @@ public class MathCore: MonoBehaviour
     public const float pinDistance = 0.169f; // Расстояние до штыря (z_ш) - м
     public const float suppressionCoefficient = 0.5f; // Коэффициент подваления Н11 (p_под) - нет СИ
     public const float amplificationCoefficient = 1.0f; // Коэффициент усиления приемника Н11 (n_н) - нет СИ
-    public const int scaleCoefficient = 1000; // Масштабный коэффициент (С) - нет СИ
+    public const int scaleCoefficient = 1; // Масштабный коэффициент (С) - нет СИ
+    public const float firstCoeffH11 = 1.841f; //Первый корень Бесселя для x_H11
+    public const float firstCoeffE01 = 2.405f; //Первый корень Бесселя для x_E01
+    
+    public const float critWaveH11 = 0.0512f; //критические длины волн
+    public const float critWaveE01 = 0.0392f;
+    public const long critFreqH11 = 5863057324; //критические частоты
+    public const long critFreqE01 = 7659235668;
+
+    public const float normPforH11 = 9.2736f; //амплитуда поля
+    public const float normPforE01 = 9.3808f;
 
     // LINKS
     [Header("Enhancer")]
@@ -30,7 +40,7 @@ public class MathCore: MonoBehaviour
 
     // PARAMETERS
     [Header("Выходящие параметры")]
-    [SerializeField] private float linearGeneratorCoeff;
+    //[SerializeField] private float linearGeneratorCoeff;
     [SerializeField] private float fullDistance;
     [SerializeField] private float angleRad;
 
@@ -40,7 +50,7 @@ public class MathCore: MonoBehaviour
 
     [SerializeField] private float waveCoefficient;
 
-    [SerializeField] private float baseSignal;
+    //[SerializeField] private float baseSignal;
     [SerializeField] private float outputPower;
 
     private void FixedUpdate()
@@ -54,17 +64,17 @@ public class MathCore: MonoBehaviour
     private void TransformInputParameters()
     {
         // 3.1
-        linearGeneratorCoeff = Mathf.Pow(10, (indicatorDb.indicatorNumber / 20)); // Линейный коэффициент генератора
-        fullDistance = rotatingPiston.truePosition / 10 + pinDistance; // Полное расстояние
+        //linearGeneratorCoeff = Mathf.Pow(10, (indicatorDb.indicatorNumber / 20)); // Линейный коэффициент генератора
+        fullDistance = pinDistance - rotatingPiston.truePosition / 1000f; // Полное расстояние
         angleRad = section6.trueAngle * (Mathf.PI / 180); // Угол в радианах
     }
 
     private void CalculateWaveParameters()
     {
         // 3.2
-        waveLength = lightSpeed / (indicatorMhz.indicatorNumber * Mathf.Pow(10, 6));
-        waveLengthE01 = waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / 2.613f * waveguideRadius, 2));
-        waveLengthH11 = waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / 3.413f * waveguideRadius, 2));
+        waveLength = lightSpeed / indicatorMhz.indicatorNumber;
+        waveLengthE01 = indicatorMhz.indicatorNumber > critFreqE01 ? waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / critWaveE01, 2)) : 0;
+        waveLengthH11 = indicatorMhz.indicatorNumber > critFreqH11 ? waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / critWaveH11, 2)) : 0;
     }
 
     private void CalculateWaveCoefficients()
@@ -72,12 +82,12 @@ public class MathCore: MonoBehaviour
         // 3.3
         if (modeChanger.currentMode == "Одноволновой") // Плавный переход
         {
-            waveCoefficient = Mathf.Sin(angleRad) * Mathf.Sin(((2 * Mathf.PI) / waveLengthH11) * fullDistance);
+            waveCoefficient = normPforH11 * Mathf.Cos(angleRad) * Mathf.Sin(((2 * Mathf.PI) / waveLengthH11) * fullDistance);
         }
         else if (modeChanger.currentMode == "Двухволновой") // Ступенчатый переход
         {
-            waveCoefficient = suppressionCoefficient * Mathf.Sin(angleRad) * Mathf.Sin(((2 * Mathf.PI) / waveLengthH11) * fullDistance)
-                + 1 * Mathf.Sin(((2 * Mathf.PI) / waveLengthE01) * fullDistance);
+            waveCoefficient = suppressionCoefficient * normPforE01 * Mathf.Sin(((2 * Mathf.PI) / waveLengthE01) * fullDistance) 
+                + normPforH11 * Mathf.Cos(angleRad) * Mathf.Sin(((2 * Mathf.PI) / waveLengthH11) * fullDistance);
         }
         else
         {
@@ -88,38 +98,15 @@ public class MathCore: MonoBehaviour
     private void CalculateOutputPower()
     {
         // 3.4
-        // скорее всего неверно
-        baseSignal = linearGeneratorCoeff * amplificationCoefficient * Mathf.Abs(waveCoefficient)
-            * (1 - BoolToInt(enhancerButton.enhancerState)) * BoolToInt(generatorButton.generatorState) + enhancerIndicator.trueNumber;
-        if (BoolToInt(enhancerButton.enhancerState) == 0 && BoolToInt(generatorButton.generatorState) == 1)
+        if (generatorButton.generatorState)
         {
-            outputPower = rotarySwitchMWI.trueCoefficient * 
-                Mathf.Pow(linearGeneratorCoeff * amplificationCoefficient * Mathf.Abs(waveCoefficient), 2) * scaleCoefficient;
-            Debug.Log("Нормальный режим");
+            outputPower = amplificationCoefficient * Mathf.Pow(waveCoefficient, 2) + (BoolToInt(enhancerButton.enhancerState) * enhancerIndicator.trueNumber);
         }
-        else if (BoolToInt(enhancerButton.enhancerState) == 1)
+        else 
         {
-            outputPower = rotarySwitchMWI.trueCoefficient * Mathf.Pow(baseSignal, 2) * scaleCoefficient;
-            Debug.Log("Установка нуля");
-        }
-        else if (BoolToInt(generatorButton.generatorState) == 0)
-        {
-            outputPower = rotarySwitchMWI.trueCoefficient * Mathf.Pow(baseSignal, 2) * scaleCoefficient;
-            Debug.Log("Генератор выкл");
-        }
-        else if (linearGeneratorCoeff == 0)
-        {
-            outputPower = rotarySwitchMWI.trueCoefficient * Mathf.Pow(baseSignal, 2) * scaleCoefficient;
-            Debug.Log("Нулевая мощность");
-        }
-        else if (Mathf.Abs(waveCoefficient) == 1 && linearGeneratorCoeff == float.PositiveInfinity)
-        {
-            outputPower = rotarySwitchMWI.trueCoefficient * Mathf.Pow(baseSignal, 2) * scaleCoefficient;
-            Debug.Log("Максимальный сигнал");
+            outputPower = 0f;
         }
     }
-
-
 
     private int BoolToInt(bool value)
     {
