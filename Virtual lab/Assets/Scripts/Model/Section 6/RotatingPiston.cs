@@ -15,7 +15,7 @@ public class RotatingPiston : MonoBehaviour
     [SerializeField] private float rotationSensitivity = 200f;
 
     [Header("DEBUG")]
-    [SerializeField] private float currentPosition = -0.7f;
+    [SerializeField] private float currentPosition;
     [SerializeField] private float currentRotation;
 
     public float truePosition;
@@ -36,10 +36,10 @@ public class RotatingPiston : MonoBehaviour
         Vector3 currentMousePosition = Input.mousePosition;
         float deltaX = currentMousePosition.x - lastMousePosition.x;
 
-        currentPosition -= deltaX * moveSensitivity * 0.01f; // 0.01f для нормализации
+        currentPosition += deltaX * moveSensitivity * 0.0001f;
         currentPosition = Mathf.Clamp(currentPosition, minPosition, maxPosition);
 
-        currentRotation -= deltaX * rotationSensitivity * 0.01f;
+        currentRotation += deltaX * rotationSensitivity * 0.01f;
         currentRotation = Mathf.Clamp(currentRotation, 0f, maxRotationAngle);
 
         rotatingPiston.transform.localPosition = new Vector3(rotatingPiston.transform.localPosition.x, currentPosition, rotatingPiston.transform.localPosition.z);
@@ -56,7 +56,7 @@ public class RotatingPiston : MonoBehaviour
 
     public void GlobalReset()
     {
-        currentPosition = minPosition; 
+        currentPosition = minPosition;
         currentRotation = 0f;
         rotatingPiston.transform.localPosition = new Vector3(0, minPosition, 0);
         rotatingPiston.transform.localRotation = Quaternion.Euler(0, 0, 0);

@@ -9259,7 +9259,7 @@ MonoBehaviour:
   section6: {fileID: 643424513}
   minAngle: 0
   maxAngle: 360
-  mouseTurn: {x: -90, y: 0}
+  mouseTurn: {x: 360, y: 0}
   trueAngle: 0
 --- !u!136 &643424518
 CapsuleCollider:
@@ -26122,10 +26122,10 @@ MonoBehaviour:
   rotatingPiston: {fileID: 1740524783}
   minPosition: 0.0208
   maxPosition: 0.0263
-  maxRotationAngle: 360
+  maxRotationAngle: -360
   moveSensitivity: 1
-  rotationSensitivity: 200
-  currentPosition: -0.7
+  rotationSensitivity: 635
+  currentPosition: 0.0208
   currentRotation: 0
   truePosition: 0
 --- !u!136 &1740524786
