@@ -7871,6 +7871,7 @@ MonoBehaviour:
   localAngle: 0
   trueAngle: 0
   indicatorNumber: 0
+  indicatorTrueNumber: 0
   firstDigit: {fileID: 1486244532}
   secondDigit: {fileID: 317144332}
   thirdDigit: {fileID: 1837388850}
@@ -24047,7 +24048,7 @@ MonoBehaviour:
   maxPosition: 0.0263
   maxRotationAngle: 360
   moveSensitivity: 1
-  rotationSensitivity: 635
+  rotationSensitivity: 6350
   currentPosition: 0.0208
   currentRotation: 0
   truePosition: 0
@@ -29534,8 +29535,8 @@ MonoBehaviour:
   rotarySwitchMWI: {fileID: 838700637}
   indicatorMhz: {fileID: 524699279}
   indicatorDb: {fileID: 58233223}
-  rotatingPiston: {fileID: 373710654}
-  section6: {fileID: 1143748196}
+  rotatingPiston: {fileID: 1740524785}
+  section6: {fileID: 643424515}
   modeChanger: {fileID: 501720572}
   fullDistance: 0
   angleRad: 0

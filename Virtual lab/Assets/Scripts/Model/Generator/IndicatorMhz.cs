@@ -12,6 +12,7 @@ public class IndicatorMhz : MonoBehaviour
     [SerializeField] private float trueAngle;
     [Header("Полное число на табло")]
     [SerializeField] public int indicatorNumber;
+    public float indicatorTrueNumber;
     [Header("Цифры на табло")]
     [SerializeField] private TMP_Text firstDigit;
     [SerializeField] private TMP_Text secondDigit;
@@ -78,7 +79,7 @@ public class IndicatorMhz : MonoBehaviour
     {
         localAngle = switchMhz.mouseTurn.x;
         trueAngle = Mathf.Abs(localAngle) - 60f;
-
+        indicatorTrueNumber = trueAngle * constCoefficient;
         indicatorNumber = Mathf.RoundToInt(trueAngle * constCoefficient);
         if (switchMhz.CurrentGeneratorState) //generator on/off
         {

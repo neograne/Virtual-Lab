@@ -46,7 +46,7 @@ public class RotatingPiston : MonoBehaviour
         rotatingPiston.transform.localRotation = Quaternion.Euler(0, currentRotation, 0);
 
         lastMousePosition = currentMousePosition;
-        truePosition = Mathf.Abs(currentPosition + 0.7f);
+        truePosition = (currentPosition - 0.0208f) / 0.0055f * 0.07f;
     }
 
     private void OnMouseUp()

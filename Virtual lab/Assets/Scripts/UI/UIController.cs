@@ -47,5 +47,6 @@ public class UIController : MonoBehaviour
     private void OnClickExit()
     {
         Debug.Log("Кнопка Выхода нажата");
+        Application.Quit();
     }
 }

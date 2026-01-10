@@ -6,9 +6,9 @@ public class MathCore: MonoBehaviour
     public const float waveguideRadius = 0.015f; // Радиус волновода (a) - м
     public const int lightSpeed = 300000000; // Скорость света (c) - м/c
     public const float pinDistance = 0.169f; // Расстояние до штыря (z_ш) - м
-    public const float suppressionCoefficient = 0.5f; // Коэффициент подваления Н11 (p_под) - нет СИ
+    public const float suppressionCoefficient = 0.5f; // Коэффициент подавления Н11 (p_под) - нет СИ
     public const float amplificationCoefficient = 1.0f; // Коэффициент усиления приемника Н11 (n_н) - нет СИ
-    public const int scaleCoefficient = 1; // Масштабный коэффициент (С) - нет СИ
+    //public const int scaleCoefficient = 1; // Масштабный коэффициент (С) - нет СИ
     public const float firstCoeffH11 = 1.841f; //Первый корень Бесселя для x_H11
     public const float firstCoeffE01 = 2.405f; //Первый корень Бесселя для x_E01
     
@@ -65,16 +65,19 @@ public class MathCore: MonoBehaviour
     {
         // 3.1
         //linearGeneratorCoeff = Mathf.Pow(10, (indicatorDb.indicatorNumber / 20)); // Линейный коэффициент генератора
-        fullDistance = pinDistance - rotatingPiston.truePosition / 1000f; // Полное расстояние
+        fullDistance = pinDistance - rotatingPiston.truePosition; // Полное расстояние
         angleRad = section6.trueAngle * (Mathf.PI / 180); // Угол в радианах
     }
 
     private void CalculateWaveParameters()
     {
         // 3.2
-        //waveLength = lightSpeed / indicatorMhz.indicatorNumber;
-        //waveLengthE01 = indicatorMhz.indicatorNumber > critFreqE01 ? waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / critWaveE01, 2)) : 0;
-        //waveLengthH11 = indicatorMhz.indicatorNumber > critFreqH11 ? waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / critWaveH11, 2)) : 0;
+        if (indicatorMhz.indicatorTrueNumber != 0)
+            waveLength = lightSpeed / indicatorMhz.indicatorTrueNumber;
+        else
+            waveLength = 0;
+        waveLengthE01 = indicatorMhz.indicatorTrueNumber > critFreqE01 ? waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / critWaveE01, 2)) : 0;
+        waveLengthH11 = indicatorMhz.indicatorTrueNumber > critFreqH11 ? waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / critWaveH11, 2)) : 0;
     }
 
     private void CalculateWaveCoefficients()
