@@ -21,6 +21,6 @@ public class Section6 : MonoBehaviour
 
     public void GlobalReset()
     {
-
+        section6.transform.localRotation = Quaternion.Euler(-90, 90, -90);
     }
 }

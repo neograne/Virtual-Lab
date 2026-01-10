@@ -6333,21 +6333,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
   m_PrefabInstance: {fileID: 951252126}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &436182494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 436182492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ada95f58161e47b4587c8050549261c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnhancerButton
-  indicator: {fileID: 1495062040}
-  button: {fileID: 436182492}
-  enhancerState: 0
 --- !u!136 &436182497
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6371,6 +6356,19 @@ CapsuleCollider:
   m_Height: 0.000056512086
   m_Direction: 1
   m_Center: {x: -0.000027260343, y: -0.00000039890122, z: -0.0000002006373}
+--- !u!114 &436182500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436182492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693df71bb54e8304fa56598b503f1a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnhancerButtonZero
+  button: {fileID: 436182492}
 --- !u!4 &444373784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2904490302124334159, guid: 3f1f5f1f14dc67544a75f226d98a7196, type: 3}
@@ -9754,7 +9752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ece12127741cf4489fc6d728a78f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnhancerRotarySwitch
-  button: {fileID: 436182494}
+  button: {fileID: 713943497}
   rotarySwitch: {fileID: 677770118}
   maxAngle: 0
   minAngle: -86
@@ -10174,7 +10172,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6fb219e34143ad24c85836866309d1c8, type: 2}
     - target: {fileID: 919132149155446097, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
       propertyPath: m_Name
-      value: "\u041A\u043D\u043E\u043F\u043A\u0430 (1)"
+      value: "\u0412\u044B\u043A\u043B\u044E\u0447\u0430\u0442\u0435\u043B\u044C"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
       propertyPath: m_IsActive
@@ -13584,7 +13582,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6fb219e34143ad24c85836866309d1c8, type: 2}
     - target: {fileID: 919132149155446097, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
       propertyPath: m_Name
-      value: "\u041A\u043D\u043E\u043F\u043A\u0430"
+      value: "\u041A\u043D\u043E\u043F\u043A\u0430Zero"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
       propertyPath: m_IsActive
@@ -13596,10 +13594,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 436182494}
+      addedObject: {fileID: 436182497}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 436182497}
+      addedObject: {fileID: 436182500}
   m_SourcePrefab: {fileID: 100100000, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
 --- !u!1 &971353081
 GameObject:
@@ -29504,7 +29502,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GlobalReset
   enhancerIndicator: {fileID: 484677615}
-  enhancerButton: {fileID: 436182494}
+  enhancerButton: {fileID: 713943497}
+  enhancerButtonZero: {fileID: 436182500}
   enhancerRotarySwitch: {fileID: 677770122}
   generatorButton: {fileID: 1835349127}
   rotarySwitchMhz: {fileID: 1139037626}
@@ -29512,7 +29511,8 @@ MonoBehaviour:
   rotarySwitchMWI: {fileID: 838700637}
   indicatorMhz: {fileID: 524699279}
   indicatorDb: {fileID: 58233223}
-  rotatingPiston: {fileID: 373710654}
+  rotatingPiston: {fileID: 1740524785}
+  section6: {fileID: 643424515}
 --- !u!114 &2124153842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29526,7 +29526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MathCore
   enhancerIndicator: {fileID: 484677615}
-  enhancerButton: {fileID: 436182494}
+  enhancerButton: {fileID: 713943497}
   enhancerRotarySwitch: {fileID: 677770122}
   generatorButton: {fileID: 1835349127}
   rotarySwitchMhz: {fileID: 1139037626}

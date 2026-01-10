@@ -58,7 +58,7 @@ public class RotatingPiston : MonoBehaviour
     {
         currentPosition = minPosition;
         currentRotation = 0f;
-        rotatingPiston.transform.localPosition = new Vector3(0, minPosition, 0);
+        rotatingPiston.transform.localPosition = new Vector3(rotatingPiston.transform.localPosition.x, minPosition, rotatingPiston.transform.localPosition.z);
         rotatingPiston.transform.localRotation = Quaternion.Euler(0, 0, 0);
     }
 

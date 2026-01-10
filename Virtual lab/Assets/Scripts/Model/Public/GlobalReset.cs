@@ -5,6 +5,7 @@ public class GlobalReset : MonoBehaviour
     [Header("Enhancer")]
     [SerializeField] private EnhancerIndicator enhancerIndicator;
     [SerializeField] private EnhancerButton enhancerButton;
+    [SerializeField] private EnhancerButtonZero enhancerButtonZero;
     [SerializeField] private EnhancerRotarySwitch enhancerRotarySwitch;
     [Header("Generator")]
     [SerializeField] private GeneratorButton generatorButton;
@@ -15,12 +16,14 @@ public class GlobalReset : MonoBehaviour
     [SerializeField] private IndicatorDb indicatorDb;
     [Header("Section 6")]
     [SerializeField] private RotatingPiston rotatingPiston;
+    [SerializeField] private Section6 section6;
 
 
     public void ResetStation()
     {
         enhancerIndicator.GlobalReset();
         enhancerButton.GlobalReset();
+        enhancerButtonZero.GlobalReset();
         enhancerRotarySwitch.GlobalReset();
 
         generatorButton.GlobalReset();
@@ -31,5 +34,6 @@ public class GlobalReset : MonoBehaviour
         indicatorDb.GlobalReset();
 
         rotatingPiston.GlobalReset();
+        section6.GlobalReset();
     }
 }
