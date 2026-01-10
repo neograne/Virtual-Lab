@@ -72,9 +72,9 @@ public class MathCore: MonoBehaviour
     private void CalculateWaveParameters()
     {
         // 3.2
-        waveLength = lightSpeed / indicatorMhz.indicatorNumber;
-        waveLengthE01 = indicatorMhz.indicatorNumber > critFreqE01 ? waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / critWaveE01, 2)) : 0;
-        waveLengthH11 = indicatorMhz.indicatorNumber > critFreqH11 ? waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / critWaveH11, 2)) : 0;
+        //waveLength = lightSpeed / indicatorMhz.indicatorNumber;
+        //waveLengthE01 = indicatorMhz.indicatorNumber > critFreqE01 ? waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / critWaveE01, 2)) : 0;
+        //waveLengthH11 = indicatorMhz.indicatorNumber > critFreqH11 ? waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / critWaveH11, 2)) : 0;
     }
 
     private void CalculateWaveCoefficients()
