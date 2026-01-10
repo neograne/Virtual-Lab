@@ -5415,15 +5415,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 669debe2731064848913d872324e15e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.085999966
+      value: -0.1053
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 669debe2731064848913d872324e15e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.050500154
+      value: 0.0517
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 669debe2731064848913d872324e15e3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.8120012
+      value: -0.9566
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 669debe2731064848913d872324e15e3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5459,7 +5459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 669debe2731064848913d872324e15e3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7658,6 +7658,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ModeChanger
   modeDropDown: {fileID: 2104360291}
   globalReset: {fileID: 2124153841}
+  section1: {fileID: 2076260015}
+  section2: {fileID: 1375250375}
   currentMode: "\u041E\u0434\u043D\u043E\u0432\u043E\u043B\u043D\u043E\u0432\u043E\u0439"
 --- !u!1001 &513110776
 PrefabInstance:
@@ -17011,6 +17013,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u0421\u0435\u043A\u0446\u0438\u044F \u21162"
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 35bd90442957d1440ac4313393133713, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19581,6 +19587,11 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1375250375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 35bd90442957d1440ac4313393133713, type: 3}
+  m_PrefabInstance: {fileID: 1166536086}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1382586635
 GameObject:
   m_ObjectHideFlags: 0
@@ -28628,6 +28639,11 @@ PrefabInstance:
       addedObject: {fileID: 568823691}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f1f5f1f14dc67544a75f226d98a7196, type: 3}
+--- !u!1 &2076260015 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 669debe2731064848913d872324e15e3, type: 3}
+  m_PrefabInstance: {fileID: 363504173}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2078975457
 PrefabInstance:
   m_ObjectHideFlags: 0
