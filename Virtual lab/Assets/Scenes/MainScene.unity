@@ -5604,7 +5604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 669debe2731064848913d872324e15e3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9259,7 +9259,7 @@ MonoBehaviour:
   section6: {fileID: 643424513}
   minAngle: 0
   maxAngle: 360
-  mouseTurn: {x: 0, y: 0}
+  mouseTurn: {x: -90, y: 0}
   trueAngle: 0
 --- !u!136 &643424518
 CapsuleCollider:
@@ -14506,7 +14506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &985438069
 Transform:
   m_ObjectHideFlags: 0
@@ -32601,18 +32601,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3303478380038235477, guid: 28797a4f47c3ee744b1454d46b160dbf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1143748196}
-    - targetCorrespondingSourceObject: {fileID: 6249413006337190102, guid: 28797a4f47c3ee744b1454d46b160dbf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1911983608854460536, guid: 28797a4f47c3ee744b1454d46b160dbf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 9156358590668353106, guid: 28797a4f47c3ee744b1454d46b160dbf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6177169052550301304, guid: 28797a4f47c3ee744b1454d46b160dbf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 28797a4f47c3ee744b1454d46b160dbf, type: 3}
 --- !u!4 &1747432629993864640
 Transform:
