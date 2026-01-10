@@ -6,8 +6,8 @@ public class RotatingPiston : MonoBehaviour
     [SerializeField] private GameObject rotatingPiston;
 
     [Header("Ограничения движения")]
-    [SerializeField] private float minPosition = -1.4f;
-    [SerializeField] private float maxPosition = -0.7f;
+    [SerializeField] private float minPosition = 0.0208f;
+    [SerializeField] private float maxPosition = 0.0263f;
     [SerializeField] private float maxRotationAngle = 360f;
 
     [Header("Настройки чувствительности")]
@@ -42,7 +42,7 @@ public class RotatingPiston : MonoBehaviour
         currentRotation -= deltaX * rotationSensitivity * 0.01f;
         currentRotation = Mathf.Clamp(currentRotation, 0f, maxRotationAngle);
 
-        rotatingPiston.transform.localPosition = new Vector3(0, currentPosition, 0);
+        rotatingPiston.transform.localPosition = new Vector3(rotatingPiston.transform.localPosition.x, currentPosition, rotatingPiston.transform.localPosition.z);
         rotatingPiston.transform.localRotation = Quaternion.Euler(0, currentRotation, 0);
 
         lastMousePosition = currentMousePosition;

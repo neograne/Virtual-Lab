@@ -15,7 +15,7 @@ public class Section6 : MonoBehaviour
             mouseTurn.x -= Input.GetAxis("Mouse X");
             mouseTurn.x = Mathf.Clamp(mouseTurn.x, minAngle, maxAngle);
             trueAngle = mouseTurn.x;
-            section6.transform.localRotation = Quaternion.Euler(0, mouseTurn.x, 0);
+            section6.transform.localRotation = Quaternion.Euler(mouseTurn.x, 90, -90);
         }
     }
 
