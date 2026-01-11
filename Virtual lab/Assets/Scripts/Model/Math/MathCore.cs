@@ -52,8 +52,8 @@ public class MathCore: MonoBehaviour
     [SerializeField] private float waveCoefficient;
 
     //[SerializeField] private float baseSignal;
-    [SerializeField] public float outputPower;
     [SerializeField] private float debugNumber;
+    public float outputPower;
 
     private void FixedUpdate()
     {
@@ -105,7 +105,7 @@ public class MathCore: MonoBehaviour
         // 3.4
         if (generatorButton.generatorState)
         {
-            outputPower = amplificationCoefficient * Mathf.Abs(Mathf.Pow(waveCoefficient, 2)) + (BoolToInt(enhancerButtonZero.enhancerZeroState) * enhancerIndicator.trueNumber);
+            outputPower = amplificationCoefficient * Mathf.Abs(Mathf.Pow(waveCoefficient, 2)) + (BoolToInt(enhancerButtonZero.enhancerZeroState) * enhancerRotarySwitch.trueAngle);
         }
         else 
         {

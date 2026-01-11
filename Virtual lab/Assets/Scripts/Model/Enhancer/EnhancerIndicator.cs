@@ -8,20 +8,18 @@ public class EnhancerIndicator : MonoBehaviour
     [SerializeField] private GameObject arrow;
     [SerializeField] private EnhancerRotarySwitch rotarySwitch;
     [SerializeField] private TextMeshPro resultNumber; 
-
     [Header("Углы")]
-    [SerializeField] private float localAngle;
     [SerializeField] private float trueAngle;
     [Header("Итоговое число")]
     [SerializeField] public int trueNumber;
-
-    private float constCoefficient = 100f / 86f;
+    private MathCore mathCore;
 
     private void FixedUpdate()
     {
-        localAngle = rotarySwitch.mouseTurn.x;
-        trueAngle = Mathf.Abs(localAngle);
-        trueNumber = Mathf.RoundToInt(Mathf.Abs(localAngle) * constCoefficient);
+        mathCore = FindFirstObjectByType<MathCore>();
+        trueNumber = Mathf.RoundToInt(mathCore.outputPower);
+        trueNumber = Mathf.Clamp(trueNumber, 0, 100);
+        trueAngle = -47f - 0.85f * trueNumber;
 
         if (rotarySwitch.CurrentEnhancerState) //enhancer on/off
         {
@@ -42,12 +40,11 @@ public class EnhancerIndicator : MonoBehaviour
 
     private void UpdatePosition(float angle)
     {
-        arrow.transform.localRotation = Quaternion.Euler(-angle - 47, 0, 0);
+        arrow.transform.localRotation = Quaternion.Euler(angle, 0, 0);
     }
 
     public void GlobalReset()
     {
-        localAngle = 0f;
         trueAngle = 0f;
         trueNumber = 0;
         resultNumber.text = "0";
