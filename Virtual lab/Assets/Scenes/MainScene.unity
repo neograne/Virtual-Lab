@@ -6369,6 +6369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnhancerButtonZero
   button: {fileID: 436182492}
+  enhancerZeroState: 0
 --- !u!4 &444373784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2904490302124334159, guid: 3f1f5f1f14dc67544a75f226d98a7196, type: 3}
@@ -29528,6 +29529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MathCore
   enhancerIndicator: {fileID: 484677615}
   enhancerButton: {fileID: 713943497}
+  enhancerButtonZero: {fileID: 436182500}
   enhancerRotarySwitch: {fileID: 677770122}
   generatorButton: {fileID: 1835349127}
   rotarySwitchMhz: {fileID: 1139037626}

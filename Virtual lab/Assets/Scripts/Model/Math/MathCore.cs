@@ -24,6 +24,7 @@ public class MathCore: MonoBehaviour
     [Header("Enhancer")]
     [SerializeField] private EnhancerIndicator enhancerIndicator;
     [SerializeField] private EnhancerButton enhancerButton;
+    [SerializeField] private EnhancerButtonZero enhancerButtonZero;
     [SerializeField] private EnhancerRotarySwitch enhancerRotarySwitch;
     [Header("Generator")]
     [SerializeField] private GeneratorButton generatorButton;
@@ -51,7 +52,8 @@ public class MathCore: MonoBehaviour
     [SerializeField] private float waveCoefficient;
 
     //[SerializeField] private float baseSignal;
-    [SerializeField] private float outputPower;
+    [SerializeField] public float outputPower;
+    [SerializeField] private float debugNumber;
 
     private void FixedUpdate()
     {
@@ -73,11 +75,11 @@ public class MathCore: MonoBehaviour
     {
         // 3.2
         if (indicatorMhz.indicatorTrueNumber != 0)
-            waveLength = lightSpeed / indicatorMhz.indicatorTrueNumber;
+            waveLength = lightSpeed / (indicatorMhz.indicatorTrueNumber * 1000000);
         else
             waveLength = 0;
-        waveLengthE01 = indicatorMhz.indicatorTrueNumber > critFreqE01 ? waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / critWaveE01, 2)) : 0;
-        waveLengthH11 = indicatorMhz.indicatorTrueNumber > critFreqH11 ? waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / critWaveH11, 2)) : 0;
+        waveLengthE01 = (indicatorMhz.indicatorTrueNumber * 1000000) > critFreqE01 ? waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / critWaveE01, 2)) : 0;
+        waveLengthH11 = (indicatorMhz.indicatorTrueNumber * 1000000) > critFreqH11 ? waveLength / Mathf.Sqrt(1 - Mathf.Pow(waveLength / critWaveH11, 2)) : 0;
     }
 
     private void CalculateWaveCoefficients()
@@ -103,7 +105,7 @@ public class MathCore: MonoBehaviour
         // 3.4
         if (generatorButton.generatorState)
         {
-            outputPower = amplificationCoefficient * Mathf.Pow(waveCoefficient, 2) + (BoolToInt(enhancerButton.enhancerState) * enhancerIndicator.trueNumber);
+            outputPower = amplificationCoefficient * Mathf.Abs(Mathf.Pow(waveCoefficient, 2)) + (BoolToInt(enhancerButtonZero.enhancerZeroState) * enhancerIndicator.trueNumber);
         }
         else 
         {
