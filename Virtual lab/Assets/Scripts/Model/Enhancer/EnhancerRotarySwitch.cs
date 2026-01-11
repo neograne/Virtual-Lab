@@ -4,15 +4,18 @@ public class EnhancerRotarySwitch : MonoBehaviour
 {
     [Header("Объекты")]
     [SerializeField] private EnhancerButton button;
+    [SerializeField] private EnhancerButtonZero buttonZero;
     [SerializeField] private GameObject rotarySwitch;
     [Header("Углы")]
     [SerializeField] private float maxAngle = 0f;
-    [SerializeField] private float minAngle = -86f;
+    [SerializeField] private float minAngle = -100f;
     [Header("Подсветка")]
     [SerializeField] private Material glowMaterial;
     [Header("DEBUG")]
     [SerializeField] public Vector2 mouseTurn;
+    [SerializeField] public float trueAngle;
     private bool currentEnhancerState;
+    private bool currentEnhancerStateZero;
     private Renderer rotarySwitchRenderer;
     private Material[] originalMaterials;
 
@@ -44,22 +47,26 @@ public class EnhancerRotarySwitch : MonoBehaviour
         {
             if (currentEnhancerState != button.enhancerState)
                 currentEnhancerState = button.enhancerState;
+
+            if (currentEnhancerStateZero != buttonZero.enhancerZeroState)
+                currentEnhancerStateZero = buttonZero.enhancerZeroState;
             UpdateMaterials();
         }
     }
 
     private void OnMouseDrag()
     {
-        if (currentEnhancerState && Input.GetMouseButton(0))
+        if (currentEnhancerState && Input.GetMouseButton(0) && currentEnhancerStateZero)
         {
             mouseTurn.x -= Input.GetAxis("Mouse X");
             mouseTurn.x = Mathf.Clamp(mouseTurn.x, minAngle, maxAngle);
             rotarySwitch.transform.rotation = Quaternion.Euler(mouseTurn.x, -90, 0);
+            trueAngle = Mathf.RoundToInt(100f - 1.01f * (mouseTurn.x + 100f));
         }
     }
     private void UpdateMaterials()
     {
-        if (currentEnhancerState)
+        if (currentEnhancerState && currentEnhancerStateZero)
         {
             Material[] newMaterials = new Material[originalMaterials.Length + 1];
             for (int i = 0; i < originalMaterials.Length; i++)

@@ -3526,11 +3526,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnhancerRotarySwitch
   button: {fileID: 496545206}
+  buttonZero: {fileID: 436182500}
   rotarySwitch: {fileID: 261347811}
   maxAngle: 0
   minAngle: -86
   glowMaterial: {fileID: 2100000, guid: 6fb219e34143ad24c85836866309d1c8, type: 2}
   mouseTurn: {x: 0, y: 0}
+  trueAngle: 0
 --- !u!136 &261347813
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9755,11 +9757,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnhancerRotarySwitch
   button: {fileID: 713943497}
+  buttonZero: {fileID: 436182500}
   rotarySwitch: {fileID: 677770118}
   maxAngle: 0
-  minAngle: -86
+  minAngle: -100
   glowMaterial: {fileID: 2100000, guid: 6fb219e34143ad24c85836866309d1c8, type: 2}
   mouseTurn: {x: 0, y: 0}
+  trueAngle: 0
 --- !u!136 &677770123
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -29547,6 +29551,7 @@ MonoBehaviour:
   waveLengthH11: 0
   waveCoefficient: 0
   outputPower: 0
+  debugNumber: 0
 --- !u!1001 &2126050717
 PrefabInstance:
   m_ObjectHideFlags: 0
