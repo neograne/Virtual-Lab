@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
+
 
 public class EnhancerRotarySwitch : MonoBehaviour
 {
@@ -39,6 +41,8 @@ public class EnhancerRotarySwitch : MonoBehaviour
         {
             Debug.LogError("Префаб погрызли собаки");
         }
+
+        rotarySwitch.transform.rotation = Quaternion.Euler(-Random.Range(4f, 15f), -90, 0);
     }
 
     private void Update()
