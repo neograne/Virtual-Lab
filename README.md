@@ -8,6 +8,6 @@
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/1e61ae59-753d-459b-92c9-b26b2fa3ca67" />
 
 # Установка из ВЛР
-<img width="800" height="2000" alt="Снимок экрана 2025-12-02 224215" src="https://github.com/user-attachments/assets/45bdfaab-d5a9-48ce-9ff4-cf59b8f64f7c" />
+<img width="721" height="277" alt="image" src="https://github.com/user-attachments/assets/bc495fa9-cc4c-4d23-9912-bb416cbeff94" />
 
 Ссылка на методичку: https://disk.yandex.ru/i/9ZImFJTUBJf56Q
