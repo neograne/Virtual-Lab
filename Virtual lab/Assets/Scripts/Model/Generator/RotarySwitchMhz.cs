@@ -6,15 +6,18 @@ public class RotarySwitchMhz : MonoBehaviour
     [SerializeField] private GeneratorButton button;
     [SerializeField] private GameObject rotarySwitch;
     [Header("Углы")]
-    [SerializeField] private float maxAngle = -60f; 
-    [SerializeField] private float minAngle = -240f;
+    [SerializeField] private float maxAngle = 0f; 
+    [SerializeField] private float minAngle = -300f;
     [Header("Подсветка")]
     [SerializeField] private Material glowMaterial;
     [Header("DEBUG")]
     [SerializeField] public Vector2 mouseTurn;
+    [SerializeField] private float fineSensitivity = 0.001f;
+    [SerializeField] private float normalSensitivity = 1f;
     private bool currentGeneratorState;
     private Renderer rotarySwitchRenderer;
     private Material[] originalMaterials;
+    
 
     public bool CurrentGeneratorState
     {
@@ -53,7 +56,12 @@ public class RotarySwitchMhz : MonoBehaviour
     {
         if (currentGeneratorState && Input.GetMouseButton(0))
         {
-            mouseTurn.x -= Input.GetAxis("Mouse X");
+            float sens = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)
+                ? fineSensitivity
+                : normalSensitivity;
+
+            float deltaX = Input.GetAxis("Mouse X");
+            mouseTurn.x -= deltaX * sens;
             mouseTurn.x = Mathf.Clamp(mouseTurn.x, minAngle, maxAngle);
             rotarySwitch.transform.localRotation = Quaternion.Euler(mouseTurn.x, 0, 0);
         }
@@ -79,7 +87,7 @@ public class RotarySwitchMhz : MonoBehaviour
 
     public void GlobalReset()
     {
-        mouseTurn.x = -60;
-        rotarySwitch.transform.localRotation = Quaternion.Euler(-60, 0, 0);
+        mouseTurn.x = 0;
+        rotarySwitch.transform.localRotation = Quaternion.Euler(0, 0, 0);
     }
 }

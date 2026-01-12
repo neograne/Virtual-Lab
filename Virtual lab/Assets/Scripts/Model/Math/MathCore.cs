@@ -87,12 +87,12 @@ public class MathCore: MonoBehaviour
         // 3.3
         if (modeChanger.currentMode == "Одноволновой") // Плавный переход
         {
-            waveCoefficient = normPforH11 * Mathf.Cos(angleRad) * Mathf.Sin(((2 * Mathf.PI) / waveLengthH11) * fullDistance);
+            waveCoefficient = normPforH11 * Mathf.Cos(angleRad) * Mathf.Sin((2 * Mathf.PI * fullDistance) / waveLengthH11);
         }
         else if (modeChanger.currentMode == "Двухволновой") // Ступенчатый переход
         {
-            waveCoefficient = suppressionCoefficient * normPforE01 * Mathf.Sin(((2 * Mathf.PI) / waveLengthE01) * fullDistance) 
-                + normPforH11 * Mathf.Cos(angleRad) * Mathf.Sin(((2 * Mathf.PI) / waveLengthH11) * fullDistance);
+            waveCoefficient = suppressionCoefficient * normPforE01 * Mathf.Sin((2 * Mathf.PI * fullDistance) / waveLengthE01)
+                + normPforH11 * Mathf.Cos(angleRad) * Mathf.Sin((2 * Mathf.PI * fullDistance) / waveLengthH11);
         }
         else
         {

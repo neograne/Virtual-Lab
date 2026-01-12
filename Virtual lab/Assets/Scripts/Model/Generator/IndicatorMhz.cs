@@ -20,8 +20,6 @@ public class IndicatorMhz : MonoBehaviour
     [SerializeField] private TMP_Text fourthDigit;
     [SerializeField] private TMP_Text lastDigit;
 
-    private float constCoefficient = 99999 / 180;
-
     private void Awake()
     {
         if (indicatorMhz == null)
@@ -78,9 +76,9 @@ public class IndicatorMhz : MonoBehaviour
     private void FixedUpdate()
     {
         localAngle = switchMhz.mouseTurn.x;
-        trueAngle = Mathf.Abs(localAngle) - 60f;
-        indicatorTrueNumber = trueAngle * constCoefficient;
-        indicatorNumber = Mathf.RoundToInt(trueAngle * constCoefficient);
+        trueAngle = Mathf.Abs(localAngle);
+        indicatorTrueNumber = 333.33f * trueAngle;
+        indicatorNumber = Mathf.RoundToInt(333.33f * trueAngle);
         if (switchMhz.CurrentGeneratorState) //generator on/off
         {
             dial.SetActive(true);

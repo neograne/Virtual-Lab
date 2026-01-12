@@ -7338,7 +7338,6 @@ MonoBehaviour:
   arrow: {fileID: 1793094760}
   rotarySwitch: {fileID: 677770122}
   resultNumber: {fileID: 1080723266}
-  localAngle: 0
   trueAngle: 0
   trueNumber: 0
 --- !u!1001 &490549915
@@ -16443,10 +16442,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RotarySwitch
   button: {fileID: 1835349127}
   rotarySwitch: {fileID: 1139037619}
-  maxAngle: -60
-  minAngle: -240
+  maxAngle: 0
+  minAngle: -300
   glowMaterial: {fileID: 2100000, guid: 6fb219e34143ad24c85836866309d1c8, type: 2}
-  mouseTurn: {x: -60, y: 0}
+  mouseTurn: {x: 0, y: 0}
 --- !u!135 &1139037627
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -21711,7 +21710,6 @@ MonoBehaviour:
   arrow: {fileID: 552884903}
   rotarySwitch: {fileID: 261347812}
   resultNumber: {fileID: 639550950}
-  localAngle: 0
   trueAngle: 0
   trueNumber: 0
 --- !u!1 &1517936478
@@ -26525,11 +26523,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8660254
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       propertyPath: m_LocalRotation.y
@@ -26541,7 +26539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2963005d356e7a40acfec6506f604d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -29550,8 +29548,8 @@ MonoBehaviour:
   waveLengthE01: 0
   waveLengthH11: 0
   waveCoefficient: 0
-  outputPower: 0
   debugNumber: 0
+  outputPower: 0
 --- !u!1001 &2126050717
 PrefabInstance:
   m_ObjectHideFlags: 0
