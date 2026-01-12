@@ -23952,7 +23952,7 @@ MonoBehaviour:
   rotatingPiston: {fileID: 1740524783}
   minPosition: 0.0208
   maxPosition: 0.0263
-  maxRotationAngle: 360
+  maxRotationAngle: 3600
   moveSensitivity: 1
   rotationSensitivity: 6350
   currentPosition: 0.0208
