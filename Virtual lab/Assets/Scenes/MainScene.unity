@@ -6327,6 +6327,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnhancerButtonZero
   button: {fileID: 436182492}
   enhancerZeroState: 0
+--- !u!114 &436182503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436182492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.5647059, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &444373784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2904490302124334159, guid: 3f1f5f1f14dc67544a75f226d98a7196, type: 3}
@@ -9030,6 +9048,24 @@ CapsuleCollider:
   m_Height: 0.012059846
   m_Direction: 1
   m_Center: {x: 0.0000000140862575, y: -0.00024396091, z: -0.00000003515742}
+--- !u!114 &643424521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643424513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.5647059, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &646080984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10069,7 +10105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
@@ -10093,6 +10129,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 713943496}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 713943500}
   m_SourcePrefab: {fileID: 100100000, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
 --- !u!4 &713943494 stripped
 Transform:
@@ -10142,6 +10181,24 @@ MonoBehaviour:
   indicator: {fileID: 1495062040}
   button: {fileID: 713943495}
   enhancerState: 0
+--- !u!114 &713943500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713943495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.5647059, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &714279742
 GameObject:
   m_ObjectHideFlags: 0
@@ -13458,7 +13515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
@@ -13482,6 +13539,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 436182500}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 436182503}
   m_SourcePrefab: {fileID: 100100000, guid: 120a894c0afa20a4e8a50b8832de578f, type: 3}
 --- !u!1 &971353081
 GameObject:
@@ -17389,7 +17449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 128c797741462fb4b983a53e382dba39, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.051399995
+      value: 0.0514
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 128c797741462fb4b983a53e382dba39, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17424,9 +17484,21 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 128c797741462fb4b983a53e382dba39, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 6
+      propertyPath: m_CastShadows
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 128c797741462fb4b983a53e382dba39, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 128c797741462fb4b983a53e382dba39, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 128c797741462fb4b983a53e382dba39, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c56166304ed32904cbbe626fc11f3415, type: 2}
     - target: {fileID: -7511558181221131132, guid: 128c797741462fb4b983a53e382dba39, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
@@ -17462,6 +17534,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 128c797741462fb4b983a53e382dba39, type: 3}
       insertIndex: -1
       addedObject: {fileID: 643424518}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 128c797741462fb4b983a53e382dba39, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 643424521}
   m_SourcePrefab: {fileID: 100100000, guid: 128c797741462fb4b983a53e382dba39, type: 3}
 --- !u!1 &1208495929
 GameObject:
@@ -25530,8 +25605,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 8de259a940881954d9899865fb1335c5, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8de259a940881954d9899865fb1335c5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c7ce1bab3e847d4bbbc45a820f1f4b5, type: 2}
     - target: {fileID: -7511558181221131132, guid: 8de259a940881954d9899865fb1335c5, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
@@ -25550,6 +25629,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8de259a940881954d9899865fb1335c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1835349127}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8de259a940881954d9899865fb1335c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1835349131}
   m_SourcePrefab: {fileID: 100100000, guid: 8de259a940881954d9899865fb1335c5, type: 3}
 --- !u!4 &1835349125 stripped
 Transform:
@@ -25597,6 +25679,24 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.000046351128
   m_Center: {x: 0.0000038492676, y: 0.0000000071522663, z: 3.492459e-10}
+--- !u!114 &1835349131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835349126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.5647059, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1837388848
 GameObject:
   m_ObjectHideFlags: 0
@@ -27637,6 +27737,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 02f172258d795d74da9faef99f94f25f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f9ffafba760fe94184ea02416061196, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 02f172258d795d74da9faef99f94f25f, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c04b975cfc1044eb81b7ed2b398557, type: 2}
     - target: {fileID: -7511558181221131132, guid: 02f172258d795d74da9faef99f94f25f, type: 3}
       propertyPath: 'm_Materials.Array.data[2]'
       value: 
