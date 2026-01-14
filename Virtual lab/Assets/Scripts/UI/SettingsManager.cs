@@ -35,6 +35,7 @@ public class SettingsManager : MonoBehaviour
         InitializeSlider(zoomStrengthSlider, userCamera.ZoomStrength, OnZoomStrengthChanged);
 
         UpdateDisplayValues();
+        zoomSpeedSlider.value = 20f;
     }
 
     private void ConfigureSliders()

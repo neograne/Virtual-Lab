@@ -14,6 +14,8 @@ public class GraphicsSettings : MonoBehaviour
     {
         InitializeResolutionDropdown();
         InitializeQualityDropdown();
+        SetQuality(2);
+        qualityDropdown.value = QualitySettings.GetQualityLevel();
     }
 
     private void InitializeResolutionDropdown()

@@ -29,8 +29,8 @@ public class GeneratorButton : MonoBehaviour
 
     public void GlobalReset()
     {
-        isFirstClick = true;
-        generatorState = false;
-        indicator.GetComponent<Renderer>().material.color = Color.black;
+        //isFirstClick = true;
+        //generatorState = false;
+        //indicator.GetComponent<Renderer>().material.color = Color.black;
     }
 }

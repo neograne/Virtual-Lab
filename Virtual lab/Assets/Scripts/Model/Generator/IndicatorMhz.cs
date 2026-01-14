@@ -75,10 +75,19 @@ public class IndicatorMhz : MonoBehaviour
 
     private void FixedUpdate()
     {
-        localAngle = switchMhz.mouseTurn.x;
-        trueAngle = Mathf.Abs(localAngle);
-        indicatorTrueNumber = 333.33f * trueAngle;
-        indicatorNumber = Mathf.RoundToInt(333.33f * trueAngle);
+        //localAngle = switchMhz.mouseTurn.x;
+        //trueAngle = Mathf.Abs(localAngle);
+        //indicatorTrueNumber = 333.33f * trueAngle;
+        //indicatorNumber = Mathf.RoundToInt(333.33f * trueAngle);
+        float angle = switchMhz.mouseTurn.x; // от 0 до -300
+                                             // Отображаем угол в частоту: 0 → 7500, -300 → 10500
+        indicatorTrueNumber = 7500f - angle * 10f; // <-- главная формула
+
+        // Ограничиваем на всякий случай (защита от вылета за пределы)
+        indicatorTrueNumber = Mathf.Clamp(indicatorTrueNumber, 7500f, 10500f);
+
+        indicatorNumber = Mathf.RoundToInt(indicatorTrueNumber);
+
         if (switchMhz.CurrentGeneratorState) //generator on/off
         {
             dial.SetActive(true);
@@ -93,10 +102,10 @@ public class IndicatorMhz : MonoBehaviour
 
     private void UpdateNumber(int number)
     {
-        if (trueAngle == 180)
-            number = 99999;
-        else if (trueAngle == 0)
-            number = 0;
+        //if (trueAngle == 300)
+        //    number = 10500;
+        //else if (trueAngle == 0)
+        //    number = 7500;
 
         firstDigit.text = (number / 10000).ToString();
         secondDigit.text = ((number / 1000) % 10).ToString();

@@ -29,9 +29,9 @@ public class EnhancerButton: MonoBehaviour
 
     public void GlobalReset()
     {
-        isFirstClick = true;
-        enhancerState = false;
-        indicator.GetComponent<Renderer>().material.color = Color.black;
-        button.transform.localRotation = Quaternion.Euler(0, 0, 45);
+        //isFirstClick = true;
+        //enhancerState = false;
+        //indicator.GetComponent<Renderer>().material.color = Color.black;
+        //button.transform.localRotation = Quaternion.Euler(0, 0, 45);
     }
 }
